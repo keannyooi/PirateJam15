@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://1nmviuxycfao"]
+
+[ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="1_fubwg"]
+
+[sub_resource type="Animation" id="Animation_d8k1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5b5n8"]
+resource_name = "flip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v8vot"]
+_data = {
+"RESET": SubResource("Animation_d8k1b"),
+"flip": SubResource("Animation_5b5n8")
+}
+
+[node name="Card" type="Sprite2D"]
+scale = Vector2(0.671875, 1)
+texture = ExtResource("1_fubwg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v8vot")
+}

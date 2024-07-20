@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://chysc16f2ioxs"]
+
+[ext_resource type="Script" path="res://events/narrationsystem.gd" id="1_jxxiy"]
+[ext_resource type="Script" path="res://events/event.gd" id="1_wewpo"]
+
+[node name="EventTemplate" type="Node2D"]
+script = ExtResource("1_wewpo")
+
+[node name="NarrationSystem" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 531.0
+offset_bottom = 231.0
+script = ExtResource("1_jxxiy")
+opening_narration_key = "exampleOpening"
+closing_narration_key = "exampleClosing"
+
+[node name="MarginContainer" type="MarginContainer" parent="NarrationSystem"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NarrationSystem/MarginContainer"]
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="Narration" type="VBoxContainer" parent="NarrationSystem/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Whitespace" type="MarginContainer" parent="NarrationSystem/MarginContainer/ScrollContainer/Narration"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NarrationTimer" type="Timer" parent="NarrationSystem"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScrollBarSetTimer" type="Timer" parent="NarrationSystem"]
+wait_time = 0.1
+one_shot = true

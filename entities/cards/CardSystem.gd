@@ -1,11 +1,36 @@
-extends Resource
-class_name CardSystem
+extends Node
 
-# Called when the node enters the scene tree for the first time.
+const CARD_DETAILS_FILE_PATH = "res://entities/cards/card_details.json"
+
+var details_dict: Dictionary
+
+
 func _ready():
-	pass # Replace with function body.
+	# load card_details.json
+	if not FileAccess.file_exists(CARD_DETAILS_FILE_PATH):
+		push_error("ERROR: card details file doesn't exist at filepath " \
+			+ CARD_DETAILS_FILE_PATH)
+		return
+	
+	# convert FileAccess object to Dictionary
+	var details_file = FileAccess.open(CARD_DETAILS_FILE_PATH,
+		FileAccess.READ)
+	details_dict = JSON.parse_string(details_file.get_as_text())
+	details_file.close()
+	
 
+func get_card_description(card_id: String) -> String:
+	return details_dict[card_id]["description"]
+	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func get_card_name(card_id: String) -> String:
+	return details_dict[card_id]["name"]
+	
+
+func get_card_inverse(card_id: String) -> String:
+	return details_dict[card_id]["inverse"]
+	
+
+func has_inverse_card(card_id: String) -> bool:
+	return details_dict[card_id]["inverse"] != ""
+	

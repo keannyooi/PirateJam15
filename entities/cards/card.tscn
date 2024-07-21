@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://1nmviuxycfao"]
+[gd_scene load_steps=6 format=3 uid="uid://1nmviuxycfao"]
 
 [ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="1_fubwg"]
+[ext_resource type="Script" path="res://entities/cards/card.gd" id="2_akkap"]
 
 [sub_resource type="Animation" id="Animation_d8k1b"]
 length = 0.001
@@ -38,9 +39,23 @@ _data = {
 "flip": SubResource("Animation_5b5n8")
 }
 
-[node name="Card" type="Sprite2D"]
-scale = Vector2(0.671875, 1)
+[node name="Card" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -576.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("1_fubwg")
+script = ExtResource("2_akkap")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

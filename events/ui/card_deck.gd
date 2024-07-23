@@ -7,31 +7,50 @@ extends Control
 
 
 func display_deck() -> void:
-	for card_id in PlayerStats.card_id_deck:
+	for i in range(len(PlayerStats.card_deck)):
 		var card: Card = card_scene.instantiate()
-		card.setup(card_id, CardSystem.has_inverse_card(card_id))
+		card.setup(i, PlayerStats.card_deck[i])
+		card.incoming_rearrange.connect(rearrange_cards)
 		
 		deck_display.add_child(card)
-		
 	
 
-func add_card_to_deck(id: String) -> void:
+func add_card_to_deck(uid: int, id: String) -> void:
 	var card: Card = card_scene.instantiate()
-	card.setup(id, CardSystem.has_inverse_card(id))
+	card.setup(uid, id)
 	
 	deck_display.add_child(card)
 	PlayerStats.add_card_to_deck(id)
 	
-	# check for card flips
+	# flip one card of its opposing type if applicable
 	for deck_card in deck_display.get_children():
 		if deck_card.is_flippable and \
-		CardSystem.get_card_inverse(deck_card.card_id) == id:
+		deck_card.card_id == CardSystem.get_card_inverse(id):
 			deck_card.flip()
 			PlayerStats.flip_card(deck_card.unique_id)
+			break
 			
 	
 
 func clean_deck() -> void:
 	for card in deck_display.get_children():
+		deck_display.remove_child(card)
 		card.queue_free()
+	
+
+func rearrange_cards(from: Card, to: Card) -> void:
+	# sanity check
+	if from.unique_id == to.unique_id: return
+	
+	PlayerStats.rearrange_cards(from.unique_id, to.unique_id)
+	
+	# physically change node order here
+	deck_display.move_child(from, to.unique_id)
+	
+	var counter: int = 0
+	for card in deck_display.get_children():
+		if card.unique_id != counter:
+			card.unique_id = counter
+		
+		counter += 1
 	

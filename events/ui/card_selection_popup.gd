@@ -25,7 +25,7 @@ func prompt_card_choice(card_id_array: Array[String]) -> void:
 		var test_button = Button.new()
 		test_button.text = card_id
 		test_button.pressed.connect(select_card.bind(card_id))
-		test_button.mouse_entered.connect(show_card_description.bind(card_id))
+		test_button.mouse_entered.connect(show_card_details.bind(card_id))
 		
 		test_button.set_anchors_preset(LayoutPreset.PRESET_HCENTER_WIDE)
 		
@@ -49,7 +49,7 @@ func select_card(card_id: String) -> void:
 		POPUP_ANIMATION_DURATION)
 	
 
-func show_card_description(card_id: String) -> void:
+func show_card_details(card_id: String) -> void:
 	card_name.text = CardSystem.get_card_name(card_id)
 	card_description.text = CardSystem.get_card_description(card_id)
 	

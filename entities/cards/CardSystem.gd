@@ -19,18 +19,25 @@ func _ready():
 	details_file.close()
 	
 
+func get_atlas_coords(card_id: String) -> Vector2:
+	return Vector2i(
+		details_dict[card_id].atlas_coord_x,
+		details_dict[card_id].atlas_coord_y
+	)
+	
+
 func get_card_description(card_id: String) -> String:
-	return details_dict[card_id]["description"]
+	return details_dict[card_id].description
 	
 
 func get_card_name(card_id: String) -> String:
-	return details_dict[card_id]["name"]
+	return details_dict[card_id].name
 	
 
 func get_card_inverse(card_id: String) -> String:
-	return details_dict[card_id]["inverse"]
+	return details_dict[card_id].inverse
 	
 
 func has_inverse_card(card_id: String) -> bool:
-	return details_dict[card_id]["inverse"] != ""
+	return details_dict[card_id].inverse != ""
 	

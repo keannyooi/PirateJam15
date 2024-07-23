@@ -26,7 +26,7 @@ func _ready():
 	
 
 func select_card(card_id: String) -> void:
-	card_deck_hud.add_card_to_deck(card_id)
+	card_deck_hud.add_card_to_deck(len(PlayerStats.card_deck), card_id)
 	
 	# play through closing narration
 	narration_system.start_narration("closing")

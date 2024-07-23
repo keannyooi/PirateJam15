@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dearka46mr1hn"]
+
+[ext_resource type="Script" path="res://events/battles/battle_template.gd" id="1_sw14v"]
+[ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="1_usf2n"]
+[ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="2_qq1c3"]
+[ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="2_r14ym"]
+[ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_deck.tscn" id="4_vriek"]
+
+[node name="BattleTemplate" type="Node2D"]
+script = ExtResource("1_sw14v")
+
+[node name="Player" parent="." node_paths=PackedStringArray("HP_COMPONENT") instance=ExtResource("2_r14ym")]
+position = Vector2(147, 428)
+HP_COMPONENT = NodePath("HPComponent")
+
+[node name="HPComponent" parent="Player" instance=ExtResource("1_usf2n")]
+offset_left = -66.0
+offset_top = -97.0
+offset_right = 64.0
+offset_bottom = -70.0
+
+[node name="CardDeckHUD" parent="." instance=ExtResource("4_vriek")]
+
+[node name="EGODisplay" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="EGODisplay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EGODisplay/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="EGODisplay/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_qq1c3")
+
+[node name="TextureRect2" type="TextureRect" parent="EGODisplay/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_qq1c3")

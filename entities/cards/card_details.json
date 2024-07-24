@@ -1,30 +1,42 @@
 {
-	"0": {
-		"name": "Hanged Man",
-		"description": "He's definitely not alive, or rather 'unalive'.",
+	"basic_atk": {
+		"name": "Basic Attack",
+		"description": "An attack.",
+		"function": 0,
+		"type": 0,
+		"cost": 1,
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
 	},
-	"1": {
-		"name": "Hydrogen Bomb",
-		"description": "...what?",
-		"inverse": "2",
+	"basic_def": {
+		"name": "Basic Defense",
+		"description": "A defense.",
+		"function": 1,
+		"type": 0,
+		"cost": 1,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"fire_atk": {
+		"name": "Fire Attack",
+		"description": "An attack, but f l a m e.",
+		"function": 0,
+		"type": 1,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"fire_def": {
+		"name": "Fire Defense",
+		"description": "A defense, but f l a m e.",
+		"function": 1,
+		"type": 1,
+		"cost": 2,
+		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
-	},
-	"2": {
-		"name": "Coughing Baby",
-		"description": "*coughs violently*",
-		"inverse": "1",
-		"atlas_coord_x": 0,
-		"atlas_coord_y": 0
-	},
-	"3": {
-		"name": "FitnessGram Pacer Test",
-		"description": "The FitnessGram Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly but gets faster each minute after you hear this signal bodeboop. A sing lap should be completed every time you hear this sound. ding Remember to run in a straight line and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark. Get ready!… Start. ding﻿",
-		"inverse": "",
-		"atlas_coord_x": 0,
-		"atlas_coord_y": 0
 	},
 }

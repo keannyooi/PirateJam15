@@ -20,8 +20,8 @@ func animate_health_bar() -> void:
 	tween.tween_property(self, "value", hp, HEALTH_BAR_ANIM_TIME)
 	
 
-func recover_hp(recover_hp: float) -> void:
-	hp += recover_hp
+func recover_hp(amount: float) -> void:
+	hp += amount
 	
 	animate_health_bar()
 	

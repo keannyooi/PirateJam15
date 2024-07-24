@@ -1,24 +1,37 @@
 class_name Battle
 extends Node2D
 
-@onready var card_deck_hud: CardDeckHUD = $CardDeckHUD
+@onready var card_hand_hud: CardHandHUD = $CardHandHUD
+@onready var enemies_node: Node2D = $Enemies
 
-var ego: Dictionary = {
-	"basic": 0,
-	"fire": 0,
-	"water": 0,
-	"earth": 0,
-	"air": 0,
-	"blood": 0,  # long ago, the seven nations lived in harmony
-	"shadow": 0, # but everything changed when the shadow nation attacked
-}
-
+var current_turn = 0
+var enemies_array: Array = []
+var ego: Array[int] = [0, 0, 0, 0, 0, 0, 0]
 
 
 func _ready() -> void:
-	card_deck_hud.display_deck()
+	#if enemies_node.get_child_count() < 1:
+		#push_error("ERROR: no enemies found in Enemies node")
+		#return
+	
+	enemies_array = enemies_node.get_children()
+	card_hand_hud.init_hand()
 	
 	# set up energy levels at the start of turn
-	for card in card_deck_hud.get_children():
-		pass
+	for card: Card in card_hand_hud.hand_display.get_children():
+		ego[card.type] += 1
+	
+	print(ego)
+	# battle_loop()
+	
+
+func battle_loop() -> void:
+	while true:
+		match current_turn % (len(enemies_array) + 1):
+			0: # player turn
+				card_hand_hud.show_hand()
+			_:
+				pass
+		
+		current_turn += 1
 	

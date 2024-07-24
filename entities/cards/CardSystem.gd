@@ -1,8 +1,12 @@
 extends Node
 
+enum CardType {BASIC, FIRE, WATER, EARTH, AIR, BLOOD, SHADOW}
+enum CardFunction {ATK, DEF}
+# long ago, the seven nations lived in harmony
+# but everything changed when the shadow nation attacked
 const CARD_DETAILS_FILE_PATH = "res://entities/cards/card_details.json"
 
-var details_dict: Dictionary
+var details_dict: Dictionary = {}
 
 
 func _ready():
@@ -26,8 +30,16 @@ func get_atlas_coords(card_id: String) -> Vector2:
 	)
 	
 
+func get_card_cost(card_id: String) -> int:
+	return details_dict[card_id].cost
+	
+
 func get_card_description(card_id: String) -> String:
 	return details_dict[card_id].description
+	
+
+func get_card_function(card_id: String) -> CardFunction:
+	return details_dict[card_id].function
 	
 
 func get_card_name(card_id: String) -> String:
@@ -38,6 +50,6 @@ func get_card_inverse(card_id: String) -> String:
 	return details_dict[card_id].inverse
 	
 
-func has_inverse_card(card_id: String) -> bool:
-	return details_dict[card_id].inverse != ""
+func get_card_type(card_id: String) -> CardType:
+	return details_dict[card_id].type
 	

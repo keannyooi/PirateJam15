@@ -5,7 +5,6 @@ extends Node2D
 @export var CARD_ID_ARRAY: Array[String]
 @export var NEXT_EVENT_LINK: String
 
-@onready var card_deck_hud: CardDeckHUD = $CardDeckHUD
 @onready var card_selection_popup: CardSelectionPopup = $CardSelectionPopup
 @onready var narration_system: NarrationSystem = $NarrationSystem
 
@@ -13,8 +12,6 @@ extends Node2D
 func _ready():
 	# hide the popup first
 	card_selection_popup.hide()
-	
-	card_deck_hud.display_deck()
 	
 	card_selection_popup.card_selected.connect(select_card)
 	
@@ -26,7 +23,7 @@ func _ready():
 	
 
 func select_card(card_id: String) -> void:
-	card_deck_hud.add_card_to_deck(len(PlayerStats.card_deck), card_id)
+	PlayerStats.add_card_to_deck(card_id)
 	
 	# play through closing narration
 	narration_system.start_narration("closing")

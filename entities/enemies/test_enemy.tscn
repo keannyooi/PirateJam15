@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddtmk7b11kswr"]
+
+[ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="1_myt21"]
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="2_e2fuj"]
+[ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/TestEnemyAttributes.tres" id="3_rlqxe"]
+[ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_2ntq2"]
+
+[node name="TestEnemy" type="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_myt21")
+script = ExtResource("2_e2fuj")
+attributes = ExtResource("3_rlqxe")
+
+[node name="HPComponent" parent="." instance=ExtResource("4_2ntq2")]
+offset_left = -64.0
+offset_top = -101.0
+offset_right = 64.0
+offset_bottom = -77.0

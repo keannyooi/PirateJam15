@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqykem1cpd0v5"]
+[gd_scene load_steps=4 format=3 uid="uid://bqykem1cpd0v5"]
 
 [ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="1_is2l7"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_s3vcm"]
+[ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="3_qragp"]
 
 [node name="Player" type="Sprite2D"]
-position = Vector2(137, 432)
 texture = ExtResource("1_is2l7")
 script = ExtResource("1_s3vcm")
+
+[node name="HPComponent" parent="." instance=ExtResource("3_qragp")]
+offset_left = -64.0
+offset_top = -98.0
+offset_right = 64.0
+offset_bottom = -74.0

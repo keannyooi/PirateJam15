@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ci74sf8sm3v20"]
 
-[ext_resource type="Script" path="res://events/narrationsystem.gd" id="1_g8lba"]
+[ext_resource type="Script" path="res://events/dialogs/narrationsystem.gd" id="1_g8lba"]
 
 [node name="NarrationSystem" type="Control"]
 layout_mode = 3

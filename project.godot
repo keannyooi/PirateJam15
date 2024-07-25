@@ -21,8 +21,9 @@ AppConfig="*res://addons/maaacks_game_template/base/scenes/Autoloads/AppConfig.t
 SceneLoader="*res://addons/maaacks_game_template/base/scenes/Autoloads/SceneLoader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/Autoloads/ProjectMusicController.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/Autoloads/ProjectUISoundController.tscn"
-PlayerStats="*res://entities/player/PlayerStats.gd"
-CardSystem="*res://entities/cards/CardSystem.gd"
+PlayerData="*res://entities/player/PlayerData.gd"
+CardManager="*res://entities/cards/CardManager.gd"
+GlobalSignalBus="*res://events/GlobalSignalBus.gd"
 
 [display]
 

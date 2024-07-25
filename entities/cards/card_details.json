@@ -39,4 +39,104 @@
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
 	},
+	"water_atk": {
+		"name": "Water Attack",
+		"description": "An attack, but w a t e r f l a m e.",
+		"function": 0,
+		"type": 2,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"water_def": {
+		"name": "Water Defense",
+		"description": "A defense, but w a t e r f l a m e.",
+		"function": 1,
+		"type": 2,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 32,
+		"atlas_coord_y": 32
+	},
+	"earth_atk": {
+		"name": "Earth Attack",
+		"description": "An attack, but it's not in Ba Sing Se.",
+		"function": 0,
+		"type": 3,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"earth_def": {
+		"name": "Earth Defense",
+		"description": "A defense, but it's not in Ba Sing Se.",
+		"function": 1,
+		"type": 3,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 32,
+		"atlas_coord_y": 32
+	},
+	"air_atk": {
+		"name": "Air Attack",
+		"description": "An attack, but bald.",
+		"function": 0,
+		"type": 4,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"air_def": {
+		"name": "Air Defense",
+		"description": "A defense, but bald.",
+		"function": 1,
+		"type": 4,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 32,
+		"atlas_coord_y": 32
+	},
+	"blood_atk": {
+		"name": "Blood Attack",
+		"description": "An attack, but for the blood god.",
+		"function": 0,
+		"type": 5,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"blood_def": {
+		"name": "Blood Defense",
+		"description": "A defense, but for the blood god.",
+		"function": 1,
+		"type": 5,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 32,
+		"atlas_coord_y": 32
+	},
+	"shadow_atk": {
+		"name": "Shadow Attack",
+		"description": "An attack, but Skarot made it d a r k.",
+		"function": 0,
+		"type": 6,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 0,
+		"atlas_coord_y": 0
+	},
+	"shadow_def": {
+		"name": "Shadow Defense",
+		"description": "A defense, but Skarot made it d a r k.",
+		"function": 1,
+		"type": 6,
+		"cost": 2,
+		"inverse": "",
+		"atlas_coord_x": 32,
+		"atlas_coord_y": 32
+	},
 }

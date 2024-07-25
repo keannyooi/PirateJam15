@@ -5,5 +5,4 @@
 [node name="HPComponent" type="ProgressBar"]
 offset_right = 128.0
 offset_bottom = 24.0
-show_percentage = false
 script = ExtResource("1_qqtmy")

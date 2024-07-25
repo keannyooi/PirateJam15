@@ -1,5 +1,6 @@
 extends Node
 
+@onready var attributes: Attributes = load("res://entities/player/DefaultPlayerAttributes.tres")
 var event_decisions: Dictionary = {}
 var is_main_deck_full: bool = false
 var main_deck: Dictionary = {
@@ -9,41 +10,43 @@ var main_deck: Dictionary = {
 var side_deck: Dictionary = {}
 
 
+# main functions
 func add_card_to_deck(id: String) -> void:
 	if is_main_deck_full:
-		add_to_side(id)
+		add_to_side_deck(id)
 	else:
-		add_to_main(id)
+		add_to_main_deck(id)
 	
 
-func add_to_main(id: String) -> void:
+func move_card_to_side_deck(id: String) -> void:
+	main_deck[id] -= 1
+	if not main_deck[id]:
+		main_deck.erase(id)
+	
+	add_to_side_deck(id)
+	
+
+func move_card_to_main_deck(id: String) -> void:
+	side_deck[id] -= 1
+	if not side_deck[id]:
+		side_deck.erase(id)
+	
+	add_to_main_deck(id)
+	
+
+# helper functions
+func add_to_main_deck(id: String) -> void:
 	if not main_deck[id]:
 		main_deck[id] = 1
 	else:
 		main_deck[id] += 1
 	
 
-func add_to_side(id: String) -> void:
+func add_to_side_deck(id: String) -> void:
 	if not side_deck[id]:
 		side_deck[id] = 1
 	else:
 		side_deck[id] += 1
-	
-
-func move_card_to_side(id: String) -> void:
-	main_deck[id] -= 1
-	if not main_deck[id]:
-		main_deck.erase(id)
-	
-	add_to_side(id)
-	
-
-func move_card_to_main(id: String) -> void:
-	side_deck[id] -= 1
-	if not side_deck[id]:
-		side_deck.erase(id)
-	
-	add_to_main(id)
 	
 
 #func flip_card(id: int) -> void:

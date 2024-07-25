@@ -50,6 +50,6 @@ func select_card(card_id: String) -> void:
 	
 
 func show_card_details(card_id: String) -> void:
-	card_name.text = CardSystem.get_card_name(card_id)
-	card_description.text = CardSystem.get_card_description(card_id)
+	card_name.text = CardManager.get_card_name(card_id)
+	card_description.text = CardManager.get_card_description(card_id)
 	

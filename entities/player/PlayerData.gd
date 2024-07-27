@@ -4,8 +4,10 @@ extends Node
 var event_decisions: Dictionary = {}
 var is_main_deck_full: bool = false
 var main_deck: Dictionary = {
-	"basic_atk": 2,
-	"fire_def": 1
+	"basic_atk": 6,
+	"fire_def": 3,
+	"blood_atk": 3,
+	"basic_def": 3,
 }
 var side_deck: Dictionary = {}
 

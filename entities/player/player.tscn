@@ -4,12 +4,17 @@
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_s3vcm"]
 [ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="3_qragp"]
 
-[node name="Player" type="Sprite2D"]
+[node name="Player" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
 texture = ExtResource("1_is2l7")
 script = ExtResource("1_s3vcm")
 
 [node name="HPComponent" parent="." instance=ExtResource("3_qragp")]
-offset_left = -64.0
-offset_top = -98.0
-offset_right = 64.0
-offset_bottom = -74.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -39.0
+offset_right = 0.0
+offset_bottom = -12.0
+grow_horizontal = 2

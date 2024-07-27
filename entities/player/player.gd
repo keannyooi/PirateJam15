@@ -1,5 +1,7 @@
 class_name Player
-extends Sprite2D
+extends TextureRect
+
+signal player_died
 
 @onready var hp_component: HPComponent = $HPComponent
 
@@ -7,22 +9,6 @@ extends Sprite2D
 func _ready() -> void:
 	hp_component.max_value = PlayerData.attributes.hp
 	hp_component.update(PlayerData.attributes.hp)
-	
-
-# fyi this function supports debuffing attributes by setting amount
-# as a negative number
-func edit_attribute(attribute: String, amount: int) -> void:
-	match attribute:
-		"atk":
-			PlayerData.attributes.atk += amount
-		"def":
-			PlayerData.attributes.def += amount
-		"mys":
-			PlayerData.attributes.mys += amount
-		"res":
-			PlayerData.attributes.res += amount
-		_:
-			push_error("ERROR: atk, def, mys or res expected")
 	
 
 func recover_hp(hp: float) -> void:
@@ -33,6 +19,8 @@ func recover_hp(hp: float) -> void:
 func take_damage(damage: float) -> void:
 	PlayerData.attributes.hp -= damage
 	hp_component.update(PlayerData.attributes.hp)
+	await hp_component.animation_timer.timeout
 	
-
-
+	if PlayerData.attributes.hp <= 0:
+		player_died.emit()
+	

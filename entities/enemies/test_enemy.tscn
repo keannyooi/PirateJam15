@@ -5,14 +5,33 @@
 [ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/TestEnemyAttributes.tres" id="3_rlqxe"]
 [ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_2ntq2"]
 
-[node name="TestEnemy" type="Sprite2D"]
+[node name="TestEnemy" type="TextureButton"]
 modulate = Color(1, 0, 0, 1)
-texture = ExtResource("1_myt21")
+texture_normal = ExtResource("1_myt21")
 script = ExtResource("2_e2fuj")
 attributes = ExtResource("3_rlqxe")
+deck_dict = {
+"basic_atk": 15
+}
 
 [node name="HPComponent" parent="." instance=ExtResource("4_2ntq2")]
-offset_left = -64.0
-offset_top = -101.0
-offset_right = 64.0
-offset_bottom = -77.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -45.0
+offset_right = 0.0
+offset_bottom = -18.0
+grow_horizontal = 2
+
+[node name="SelectionArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = -111.0
+offset_right = 114.0
+offset_bottom = 17.0
+grow_horizontal = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_myt21")

@@ -4,15 +4,13 @@ extends TextureButton
 signal incoming_rearrange(incoming: Card, original: Card)
 signal select_card(card: Card)
 
-@export var CARD_ATLAS: AtlasTexture
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var description_label: Label = %DesciprtionLabel
 @onready var name_label: Label = %NameLabel
 @onready var tooltip: MarginContainer = $Tooltip
 
 var card_id: String = ""
-var cost: int = 0
+var cost_array: Array = [0, 0, 0, 0, 0, 0, 0]
 var function: CardManager.CardFunction = CardManager.CardFunction.ATK
 var type: CardManager.CardType = CardManager.CardType.BASIC
 var unique_id: int = 0
@@ -35,11 +33,11 @@ func setup(uid: int, id: String) -> Card:
 	card_id = id
 	function = CardManager.get_card_function(id)
 	type = CardManager.get_card_type(id)
-	cost = CardManager.get_card_cost(id)
+	cost_array = CardManager.get_card_cost(id)
 	
 	# each card needs to have its own atlas so that each atlas can be
 	# individually edited
-	self.texture_normal = CARD_ATLAS.duplicate()
+	self.texture_normal = CardManager.card_atlas.duplicate()
 	self.texture_normal.region.position = CardManager.get_atlas_coords(id)
 	
 	return self

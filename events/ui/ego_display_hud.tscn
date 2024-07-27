@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://csjic52l2x2c5"]
+
+[ext_resource type="Script" path="res://events/ui/ego_display_hud.gd" id="1_1fiai"]
+[ext_resource type="Texture2D" uid="uid://50cjg77jedkb" path="res://assets/sprites/ego_slot_atlas.tres" id="2_hnnp0"]
+[ext_resource type="PackedScene" uid="uid://c3ljyh7oe7tdi" path="res://events/battles/ego_slot.tscn" id="3_p4w3d"]
+
+[node name="EGODisplayHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1fiai")
+ego_slot_atlas = ExtResource("2_hnnp0")
+ego_slot_scene = ExtResource("3_p4w3d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 59.0
+offset_bottom = 311.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="EGOSlotContainer" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BasicEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+
+[node name="FireEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 1
+type = 1
+
+[node name="WaterEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 2
+type = 2
+
+[node name="EarthEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 3
+type = 3
+
+[node name="AirEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 4
+type = 4
+
+[node name="BloodEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 5
+type = 5
+
+[node name="ShadowEGO" parent="MarginContainer/EGOSlotContainer" instance=ExtResource("3_p4w3d")]
+layout_mode = 2
+unique_id = 6
+type = 6

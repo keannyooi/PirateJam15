@@ -4,7 +4,7 @@
 		"description": "An attack.",
 		"function": 0,
 		"type": 0,
-		"cost": 1,
+		"cost": [1, 0, 0, 0, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -14,7 +14,7 @@
 		"description": "A defense.",
 		"function": 1,
 		"type": 0,
-		"cost": 1,
+		"cost": [1, 0, 0, 0, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -24,7 +24,7 @@
 		"description": "An attack, but f l a m e.",
 		"function": 0,
 		"type": 1,
-		"cost": 2,
+		"cost": [0, 2, 0, 0, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -34,7 +34,7 @@
 		"description": "A defense, but f l a m e.",
 		"function": 1,
 		"type": 1,
-		"cost": 2,
+		"cost": [0, 2, 0, 0, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
@@ -44,7 +44,7 @@
 		"description": "An attack, but w a t e r f l a m e.",
 		"function": 0,
 		"type": 2,
-		"cost": 2,
+		"cost": [0, 0, 2, 0, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -53,7 +53,7 @@
 		"name": "Water Defense",
 		"description": "A defense, but w a t e r f l a m e.",
 		"function": 1,
-		"type": 2,
+		"type": [0, 0, 2, 0, 0, 0, 0],
 		"cost": 2,
 		"inverse": "",
 		"atlas_coord_x": 32,
@@ -64,7 +64,7 @@
 		"description": "An attack, but it's not in Ba Sing Se.",
 		"function": 0,
 		"type": 3,
-		"cost": 2,
+		"cost": [0, 0, 0, 2, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -74,7 +74,7 @@
 		"description": "A defense, but it's not in Ba Sing Se.",
 		"function": 1,
 		"type": 3,
-		"cost": 2,
+		"cost": [0, 0, 0, 2, 0, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
@@ -84,7 +84,7 @@
 		"description": "An attack, but bald.",
 		"function": 0,
 		"type": 4,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 2, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -94,7 +94,7 @@
 		"description": "A defense, but bald.",
 		"function": 1,
 		"type": 4,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 2, 0, 0],
 		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
@@ -104,7 +104,7 @@
 		"description": "An attack, but for the blood god.",
 		"function": 0,
 		"type": 5,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 0, 2, 0],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -114,7 +114,7 @@
 		"description": "A defense, but for the blood god.",
 		"function": 1,
 		"type": 5,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 0, 2, 0],
 		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32
@@ -124,7 +124,7 @@
 		"description": "An attack, but Skarot made it d a r k.",
 		"function": 0,
 		"type": 6,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 0, 0, 2],
 		"inverse": "",
 		"atlas_coord_x": 0,
 		"atlas_coord_y": 0
@@ -134,7 +134,7 @@
 		"description": "A defense, but Skarot made it d a r k.",
 		"function": 1,
 		"type": 6,
-		"cost": 2,
+		"cost": [0, 0, 0, 0, 0, 0, 2],
 		"inverse": "",
 		"atlas_coord_x": 32,
 		"atlas_coord_y": 32

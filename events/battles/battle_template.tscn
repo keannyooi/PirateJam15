@@ -1,36 +1,113 @@
-[gd_scene load_steps=5 format=3 uid="uid://dearka46mr1hn"]
+[gd_scene load_steps=9 format=3 uid="uid://dearka46mr1hn"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_sw14v"]
 [ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="2_r14ym"]
+[ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="4_lvjpo"]
 [ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="4_yq8u1"]
 [ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/test_enemy.tscn" id="5_gdlqn"]
+[ext_resource type="Script" path="res://resources/AttributesResource.gd" id="6_orfe6"]
 
-[node name="BattleTemplate" type="Node2D"]
+[sub_resource type="Resource" id="Resource_3m7vd"]
+script = ExtResource("6_orfe6")
+hp = 10.0
+atk = 2.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 5.0
+
+[sub_resource type="Resource" id="Resource_nk658"]
+script = ExtResource("6_orfe6")
+hp = 10.0
+atk = 2.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 5.0
+
+[node name="BattleTemplate" type="CanvasLayer"]
 script = ExtResource("1_sw14v")
 
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Player" parent="." instance=ExtResource("2_r14ym")]
-position = Vector2(147, 428)
+offset_left = 147.0
+offset_top = 428.0
+offset_right = 275.0
+offset_bottom = 556.0
 
 [node name="CardHandHUD" parent="." instance=ExtResource("4_yq8u1")]
+z_index = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 504.0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -576.0
+offset_right = 576.0
 
-[node name="EGODisplay" type="Control" parent="."]
+[node name="EGODisplayHUD" parent="." instance=ExtResource("4_lvjpo")]
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="CardDeselectButton" type="TextureButton" parent="BackgroundDim"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemies" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="EGODisplay"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Enemies" type="Node2D" parent="."]
 
 [node name="TestEnemy" parent="Enemies" instance=ExtResource("5_gdlqn")]
-position = Vector2(946, 417)
+layout_mode = 0
+offset_left = 946.0
+offset_top = 417.0
+offset_right = 946.0
+offset_bottom = 417.0
+attributes = SubResource("Resource_3m7vd")
+
+[node name="TestEnemy2" parent="Enemies" instance=ExtResource("5_gdlqn")]
+layout_mode = 0
+offset_left = 797.0
+offset_top = 417.0
+offset_right = 925.0
+offset_bottom = 545.0
+attributes = SubResource("Resource_nk658")
+
+[node name="LabelContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_right = 53.0
+offset_bottom = 94.0
+grow_horizontal = 2
+
+[node name="TurnLabel" type="Label" parent="LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Turn 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloorLabel" type="Label" parent="LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Floor 1"
+horizontal_alignment = 1
+vertical_alignment = 1

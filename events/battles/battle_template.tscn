@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dearka46mr1hn"]
+[gd_scene load_steps=11 format=3 uid="uid://dearka46mr1hn"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_sw14v"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_a7vt7"]
 [ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="2_r14ym"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_ga8ma"]
 [ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="4_lvjpo"]
 [ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="4_yq8u1"]
 [ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/test_enemy.tscn" id="5_gdlqn"]
@@ -27,6 +29,10 @@ spd = 5.0
 
 [node name="BattleTemplate" type="CanvasLayer"]
 script = ExtResource("1_sw14v")
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("2_a7vt7")
+pause_menu_packed = ExtResource("3_ga8ma")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0

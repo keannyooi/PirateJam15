@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpjjg11r6w2o4"]
+
+[ext_resource type="Script" path="res://util/map_navigation/map_node.gd" id="1_7wmjj"]
+
+[node name="MapNode" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "O"
+script = ExtResource("1_7wmjj")

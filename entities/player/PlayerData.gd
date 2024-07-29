@@ -1,6 +1,8 @@
 extends Node
 
 @onready var attributes: Attributes = load("res://entities/player/DefaultPlayerAttributes.tres")
+
+var completed_nodes: Array = [1, 2, 3]
 var event_decisions: Dictionary = {}
 var is_main_deck_full: bool = false
 var main_deck: Dictionary = {

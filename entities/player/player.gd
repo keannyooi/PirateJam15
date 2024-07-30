@@ -7,20 +7,31 @@ signal player_died
 
 
 func _ready() -> void:
-	hp_component.max_value = PlayerData.attributes.hp
-	hp_component.update(PlayerData.attributes.hp)
+	hp_component.max_value = PlayerData.hp
+	hp_component.update(PlayerData.hp)
 	
 
 func recover_hp(hp: float) -> void:
-	PlayerData.attributes.hp += hp
-	hp_component.update(PlayerData.attributes.hp)
-	
+	PlayerData.hp = min(PlayerData.hp + hp, PlayerData.hp_max)
+	hp_component.update(PlayerData.hp)
 
-func take_damage(damage: float) -> void:
-	PlayerData.attributes.hp -= damage
-	hp_component.update(PlayerData.attributes.hp)
+func take_atk_damage(damage: float) -> void:
+	damage -= PlayerData.def_block
+	if damage > 0:
+		PlayerData.hp -= damage
+		hp_component.update(PlayerData.hp)
 	await hp_component.animation_timer.timeout
 	
-	if PlayerData.attributes.hp <= 0:
+	if PlayerData.hp <= 0:
+		player_died.emit()
+
+func take_mys_damage(damage: float) -> void:
+	damage -= PlayerData.res_block
+	if damage > 0:
+		PlayerData.hp -= damage
+		hp_component.update(PlayerData.hp)
+	await hp_component.animation_timer.timeout
+	
+	if PlayerData.hp <= 0:
 		player_died.emit()
 	

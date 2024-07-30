@@ -2,13 +2,14 @@ class_name Enemy
 extends TextureButton
 
 @export var attributes: Attributes
+@export var buffs: BuffAttributes
 @export var deck_dict: Dictionary
+@export var deck_array: Array[String] = []
 # @export var advanced_decision_machine
 
 @onready var hp_component: HPComponent = $HPComponent
 @onready var selection_arrow: TextureRect = $SelectionArrow
 
-var deck_array: Array[String] = []
 var ego: Array[int] = [0, 0, 0, 0, 0, 0, 0]
 var energy: Array[int] = [0, 0, 0, 0, 0, 0, 0]
 var hand_array: Array[String] = []
@@ -21,8 +22,8 @@ func _ready() -> void:
 	hp_component.update(attributes.hp)
 	
 	populate_deck()
-	if CardManager.blood_type_card_ability_check(deck_array):
-		max_hand_size = 4
+	#if CardManager.blood_type_card_ability_check(deck_array):
+		#max_hand_size = 4
 	
 	refresh_hand()
 	init_ego()
@@ -82,7 +83,7 @@ func populate_deck() -> void:
 	
 
 func recover_hp(hp: float) -> void:
-	attributes.hp += hp
+	attributes.hp = min(attributes.hp + hp, attributes.hp_max) 
 	hp_component.update(attributes.hp)
 	
 
@@ -102,7 +103,16 @@ func run_decision_tree() -> String:
 	return chosen_card_id
 	
 
-func take_damage(damage: float) -> void:
+func take_atk_damage(damage: float) -> void:
+	attributes.hp = max(0, attributes.hp - damage)
+	hp_component.update(attributes.hp)
+	await hp_component.animation_timer.timeout
+	
+	if attributes.hp <= 0:
+		# enemy defeated
+		GlobalSignalBus.enemy_defeated.emit(self)
+	
+func take_mys_damage(damage: float) -> void:
 	attributes.hp = max(0, attributes.hp - damage)
 	hp_component.update(attributes.hp)
 	await hp_component.animation_timer.timeout

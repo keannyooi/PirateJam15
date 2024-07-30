@@ -10,8 +10,13 @@ signal select_card(card: Card)
 @onready var tooltip: MarginContainer = $Tooltip
 
 var card_id: String = ""
+# {BASIC, BLOOD, FIRE, EARTH, WATER, AIR, SHADOW}
 var cost_array: Array = [0, 0, 0, 0, 0, 0, 0]
-var function: CardManager.CardFunction = CardManager.CardFunction.ATK
+
+# {SPD, HP, ATK, DEF, MYS, RES, DRW}
+var function: Array = [0, 0, 0, 0, 0, 0, 0] 
+#var function: CardManager.CardFunction = CardManager.CardFunction.SPD
+var target: CardManager.CardTarget = CardManager.CardTarget.TARGET
 var type: CardManager.CardType = CardManager.CardType.BASIC
 var unique_id: int = 0
 
@@ -33,6 +38,7 @@ func setup(uid: int, id: String) -> Card:
 	card_id = id
 	function = CardManager.get_card_function(id)
 	type = CardManager.get_card_type(id)
+	target = CardManager.get_card_target(id)
 	cost_array = CardManager.get_card_cost(id)
 	
 	# each card needs to have its own atlas so that each atlas can be

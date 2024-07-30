@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=2 format=3 uid="uid://bhmndwsb5kqe6"]
+
+[ext_resource type="Script" path="res://resources/Start_Deck.gd" id="1_e2x2k"]
+
+[resource]
+script = ExtResource("1_e2x2k")
+deck = {
+"basic_atk": 2,
+"basic_def": 1
+}

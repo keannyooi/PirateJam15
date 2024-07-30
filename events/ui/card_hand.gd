@@ -9,7 +9,8 @@ extends Control
 const TWEEN_TIME: float = 1.0
 
 var deck_array: Array[String] = []
-var max_hand_size: int = 3
+var deck_discard: Array[String] = []
+var max_hand_size: int = 5
 
 
 func clean_hand() -> void:
@@ -19,6 +20,8 @@ func clean_hand() -> void:
 	
 
 func draw_from_deck(amount: int) -> void:
+	if deck_array.is_empty(): #shuffle only if deck is empty on start of card draw.
+		shuffle_deck()
 	for i in range(min(amount, len(deck_array))):
 		var card_id: String = deck_array.pop_back()
 		var card: Card = card_scene.instantiate()
@@ -54,8 +57,8 @@ func init_hand() -> void:
 	self.position.y = 675
 	
 	populate_deck()
-	if CardManager.blood_type_card_ability_check(deck_array):
-		max_hand_size = 4
+	#if CardManager.blood_type_card_ability_check(deck_array):
+		#max_hand_size = 4
 	
 	refresh_hand()
 	
@@ -64,7 +67,7 @@ func populate_deck() -> void:
 	var temp_array: Array[String] = [];
 	for card_id in PlayerData.main_deck.keys():
 		temp_array.clear()
-		temp_array.resize(PlayerData.main_deck[card_id])
+		temp_array.resize(PlayerData.battle_deck[card_id])
 		temp_array.fill(card_id)
 		
 		deck_array.append_array(temp_array)
@@ -94,7 +97,20 @@ func refresh_hand() -> void:
 func remove_from_deck(card: Card) -> void:
 	hand_display.remove_child(card)
 	card.queue_free()
-	
+
+func play_card(card: Card) -> void:
+	hand_display.remove_child(card)
+	deck_discard.push_front(card.card_id)
+	card.queue_free()
+
+func shuffle_deck() -> void:
+	#empty deck to discard
+	while not deck_array.is_empty():
+		deck_discard.push_front(deck_array.pop_back())
+	#shuffle discard back into deck
+	while not deck_discard.is_empty():
+		var rand = randi_range(0, deck_discard.size()-1)
+		deck_array.push_front(deck_discard.pop_at(rand))
 
 func show_hand() -> void:
 	# animate in the hud

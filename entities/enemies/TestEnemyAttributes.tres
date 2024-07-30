@@ -10,3 +10,5 @@ def = 1.0
 mys = 1.0
 res = 1.0
 spd = 5.0
+def_block = 0.0
+res_block = 0.0

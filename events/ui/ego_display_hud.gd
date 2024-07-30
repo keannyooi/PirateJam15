@@ -7,13 +7,13 @@ extends Control
 @onready var ego_slot_container: VBoxContainer = %EGOSlotContainer
 
 const EGO_SLOT_ATLAS_COORDS: Dictionary = {
-	CardManager.CardType.BASIC: Vector2(0, 0),
-	CardManager.CardType.FIRE: Vector2(32, 0),
-	CardManager.CardType.WATER: Vector2(0, 0),
-	CardManager.CardType.EARTH: Vector2(0, 0),
-	CardManager.CardType.AIR: Vector2(0, 0),
-	CardManager.CardType.BLOOD: Vector2(0, 0),
-	CardManager.CardType.SHADOW: Vector2(0, 0),
+	CardManager.CardType.BASIC: Vector2(32, 0),
+	CardManager.CardType.FIRE: Vector2(64, 0),
+	CardManager.CardType.WATER: Vector2(96, 0),
+	CardManager.CardType.EARTH: Vector2(128, 0),
+	CardManager.CardType.AIR: Vector2(160, 0),
+	CardManager.CardType.BLOOD: Vector2(192, 0),
+	CardManager.CardType.SHADOW: Vector2(224, 0),
 }
 
 

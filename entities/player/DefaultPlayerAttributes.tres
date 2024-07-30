@@ -4,9 +4,11 @@
 
 [resource]
 script = ExtResource("1_ukbqc")
-hp = 20.0
-atk = 2.0
-def = 2.0
-mys = 2.0
-res = 2.0
-spd = 10.0
+hp = 0.0
+atk = 0.0
+def = 0.0
+mys = 0.0
+res = 0.0
+spd = 0.0
+def_block = 0.0
+res_block = 0.0

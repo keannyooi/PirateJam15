@@ -1,18 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddtmk7b11kswr"]
+[gd_scene load_steps=6 format=3 uid="uid://ddtmk7b11kswr"]
 
-[ext_resource type="Texture2D" uid="uid://dijdhuwrqpy2k" path="res://icon.svg" id="1_myt21"]
+[ext_resource type="Texture2D" uid="uid://dfju7e7pso5d2" path="res://icon.svg" id="1_myt21"]
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="2_e2fuj"]
 [ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/TestEnemyAttributes.tres" id="3_rlqxe"]
 [ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_2ntq2"]
+[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="4_rjt2h"]
 
 [node name="TestEnemy" type="TextureButton"]
 modulate = Color(1, 0, 0, 1)
 texture_normal = ExtResource("1_myt21")
 script = ExtResource("2_e2fuj")
 attributes = ExtResource("3_rlqxe")
-deck_dict = {
-"basic_atk": 15
-}
+buffs = ExtResource("4_rjt2h")
+deck_array = Array[String](["basic_atk"])
 
 [node name="HPComponent" parent="." instance=ExtResource("4_2ntq2")]
 layout_mode = 1

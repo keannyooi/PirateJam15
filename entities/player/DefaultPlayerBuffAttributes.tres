@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuffAttributes" load_steps=2 format=3 uid="uid://cfs0wxbpjuvrl"]
+
+[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="1_xg6pp"]
+
+[resource]
+script = ExtResource("1_xg6pp")
+hp = 1.0
+atk = 1.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 1.0
+def_block = 1.0
+res_block = 1.0

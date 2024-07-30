@@ -1,7 +1,8 @@
 extends Node
 
-enum CardType {BASIC, FIRE, WATER, EARTH, AIR, BLOOD, SHADOW}
-enum CardFunction {ATK, DEF}
+enum CardType {BASIC, BLOOD, FIRE, EARTH, WATER, AIR, SHADOW}
+enum CardFunction {SPD, HP, ATK, DEF, MYS, RES, DRW} #List items in priority order, Left has highest priority.
+enum CardTarget {TARGET, SELF, OTHERS, ALL} #Who does card effect
 # long ago, the seven nations lived in harmony
 # but everything changed when the shadow nation attacked
 const CARD_DETAILS_FILE_PATH = "res://entities/cards/card_details.json"
@@ -53,8 +54,11 @@ func get_card_description(card_id: String) -> String:
 	return details_dict[card_id].description
 	
 
-func get_card_function(card_id: String) -> CardFunction:
+func get_card_function(card_id: String) -> Array:
 	return details_dict[card_id].function
+	
+func get_card_target(card_id: String) -> CardTarget:
+	return details_dict[card_id].target
 	
 
 func get_card_name(card_id: String) -> String:

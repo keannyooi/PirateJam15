@@ -22,7 +22,7 @@ const SHADOW = CardManager.CardType.SHADOW
 @export var def_block: float = 0.0
 @export var res_block: float = 0.0
 
-var completed_nodes: Array = [1, 2, 3]
+var completed_nodes: Array[MapNode] = []
 var event_decisions: Dictionary = {}
 #var is_main_deck_full: bool = false
 @export var max_main_deck_size = 5
@@ -79,10 +79,10 @@ func add_to_main_deck(id: String) -> void:
 		battle_deck[id] = 3
 
 func add_to_side_deck(id: String) -> void:
-	if side_deck[id] != null:
-		side_deck[id] = 1
-	else:
+	if side_deck.get(id) != null:
 		side_deck[id] += 1
+	else:
+		side_deck[id] = 1
 	
 func recover_hp(hp: float) -> void:
 	hp = min(hp + hp, hp_max) 

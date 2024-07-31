@@ -8,6 +8,8 @@ extends Node2D
 @onready var card_selection_popup: CardSelectionPopup = $CardSelectionPopup
 @onready var narration_system: NarrationSystem = $NarrationSystem
 
+var parent
+var next_event
 
 func _ready():
 	# hide the popup first
@@ -30,4 +32,6 @@ func select_card(card_id: String) -> void:
 	await narration_system.narration_finished
 	
 	print("transition to next event")
-	
+	next_event.show()
+	parent.remove_child(self)
+	#get_tree().change_scene_to_file("res://util/map_navigation/map_navigation.tscn")

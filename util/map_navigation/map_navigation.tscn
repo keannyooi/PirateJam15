@@ -1,63 +1,104 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi7031x3e3u2f"]
+[gd_scene load_steps=5 format=3 uid="uid://bi7031x3e3u2f"]
 
 [ext_resource type="Script" path="res://util/map_navigation/map_navigation.gd" id="1_8mse3"]
 [ext_resource type="PackedScene" uid="uid://cpjjg11r6w2o4" path="res://util/map_navigation/map_node.tscn" id="2_s0w17"]
+[ext_resource type="PackedScene" uid="uid://dearka46mr1hn" path="res://events/battles/battle_template.tscn" id="3_jg6e4"]
+[ext_resource type="PackedScene" uid="uid://chysc16f2ioxs" path="res://events/event_template.tscn" id="4_g51t3"]
 
 [node name="MapNavigation" type="CanvasLayer" node_paths=PackedStringArray("root_node")]
 script = ExtResource("1_8mse3")
 root_node = NodePath("MapNodes/RootNode")
 
 [node name="MapNodes" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 
-[node name="RootNode" parent="MapNodes" instance=ExtResource("2_s0w17")]
+[node name="RootNode" parent="MapNodes" node_paths=PackedStringArray("future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
+future_nodes = [NodePath("../Node2")]
+linked_scene = ExtResource("3_jg6e4")
 
-[node name="Node2" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="Node2" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 79.0
 offset_right = 101.0
 offset_bottom = 110.0
 previous_nodes = [NodePath("../RootNode")]
+future_nodes = [NodePath("../Node3"), NodePath("../Node4")]
+linked_scene = ExtResource("4_g51t3")
 
-[node name="Node3" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="Node3" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 308.0
 offset_top = 110.0
 offset_right = 329.0
 offset_bottom = 141.0
 previous_nodes = [NodePath("../Node2")]
+future_nodes = [NodePath("../Node6")]
+linked_scene = ExtResource("3_jg6e4")
 
-[node name="Node4" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="Node4" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 142.0
 offset_top = 205.0
 offset_right = 163.0
 offset_bottom = 236.0
 previous_nodes = [NodePath("../Node2")]
+future_nodes = [NodePath("../Node5")]
+linked_scene = ExtResource("4_g51t3")
 
-[node name="Node5" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="Node5" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 270.0
 offset_right = 251.0
 offset_bottom = 301.0
 previous_nodes = [NodePath("../Node4")]
+future_nodes = [NodePath("../Node6")]
+linked_scene = ExtResource("4_g51t3")
 
-[node name="Node6" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="Node6" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 382.0
 offset_top = 256.0
 offset_right = 403.0
 offset_bottom = 287.0
 previous_nodes = [NodePath("../Node3"), NodePath("../Node5")]
+future_nodes = [NodePath("../Node7")]
+linked_scene = ExtResource("4_g51t3")
 
 [node name="Node7" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 313.0
-offset_right = 560.0
-offset_bottom = 344.0
+offset_left = 535.0
+offset_top = 306.0
+offset_right = 565.0
+offset_bottom = 360.0
+text = "x x
+U"
 previous_nodes = [NodePath("../Node6")]
+linked_scene = ExtResource("3_jg6e4")
+
+[node name="Line2D" type="Line2D" parent="MapNodes"]
+modulate = Color(0.964706, 0.196078, 0.537255, 0.556863)
+show_behind_parent = true
+position = Vector2(28, 20)
+scale = Vector2(1.05462, 1.60465)
+points = PackedVector2Array(-17.0677, -2.49275, 58.7888, 46.7391, 86.5173, 84.6567, 117.578, 127.13, 201.02, 167.014, 346.096, 157.043, 495.912, 192.565)
+
+[node name="Line2D2" type="Line2D" parent="MapNodes"]
+modulate = Color(0.964706, 0.196078, 0.537255, 0.556863)
+show_behind_parent = true
+position = Vector2(28, 20)
+scale = Vector2(1.05462, 1.60465)
+points = PackedVector2Array(59.737, 44.8696, 277.825, 66.6812, 346.096, 157.043)
+
+[node name="Event" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="child_exiting_tree" from="Event" to="." method="_on_event_child_exiting_tree"]

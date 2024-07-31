@@ -106,9 +106,9 @@ deck_dict = {
 deck_array = Array[String](["shadow_atk", "shadow_def"])
 
 [node name="HPComponent" parent="Enemies/Shade Bubble" index="0"]
-offset_left = 46.2816
+offset_left = 46.661
 offset_top = -16.9707
-offset_right = -49.7184
+offset_right = -49.339
 offset_bottom = 10.0293
 scale = Vector2(1.01798, 0.549042)
 

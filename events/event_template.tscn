@@ -10,7 +10,7 @@
 
 [node name="EventTemplate" type="Node2D"]
 script = ExtResource("1_wewpo")
-CARD_ID_ARRAY = Array[String](["0", "1", "2", "3"])
+CARD_ID_ARRAY = Array[String](["fire_atk", "blood_def", "earth_def", "shadow_atk"])
 
 [node name="PauseMenuController" type="Node" parent="."]
 script = ExtResource("2_hlxpl")

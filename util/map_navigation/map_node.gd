@@ -4,6 +4,7 @@ extends Button
 enum NodeStatus {LOCKED, UNLOCKED, COMPLETED}
 
 @export var previous_nodes: Array[MapNode]
+@export var future_nodes: Array[MapNode]
 @export var linked_scene: PackedScene
 
 var node_id: int = 0

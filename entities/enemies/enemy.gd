@@ -1,5 +1,5 @@
 class_name Enemy
-extends TextureButton
+extends Button
 
 @export var attributes: Attributes
 @export var buffs: BuffAttributes

@@ -1,14 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddtmk7b11kswr"]
+[gd_scene load_steps=8 format=3 uid="uid://ddtmk7b11kswr"]
 
 [ext_resource type="Texture2D" uid="uid://dfju7e7pso5d2" path="res://icon.svg" id="1_myt21"]
 [ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="2_e2fuj"]
 [ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/TestEnemyAttributes.tres" id="3_rlqxe"]
 [ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_2ntq2"]
 [ext_resource type="Script" path="res://resources/BuffsResource.gd" id="4_rjt2h"]
+[ext_resource type="Texture2D" uid="uid://33ehkjchptlk" path="res://assets/sprites/Shadowbubble.png" id="6_sthy3"]
 
-[node name="TestEnemy" type="TextureButton"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8db6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_sthy3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TestEnemy" type="Button"]
 modulate = Color(1, 0, 0, 1)
-texture_normal = ExtResource("1_myt21")
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 277.0
+offset_bottom = 357.0
 script = ExtResource("2_e2fuj")
 attributes = ExtResource("3_rlqxe")
 buffs = ExtResource("4_rjt2h")
@@ -35,3 +50,9 @@ offset_bottom = 17.0
 grow_horizontal = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_myt21")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(138.5, 177.95)
+scale = Vector2(0.182993, 0.181389)
+sprite_frames = SubResource("SpriteFrames_8db6q")
+frame_progress = 0.099094

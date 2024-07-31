@@ -87,12 +87,16 @@ grow_vertical = 2
 layout_mode = 3
 anchors_preset = 0
 
-[node name="TestEnemy" parent="Enemies" instance=ExtResource("5_gdlqn")]
+[node name="Shade Bubble" parent="Enemies" instance=ExtResource("5_gdlqn")]
+modulate = Color(0.716296, 0.716296, 0.716296, 1)
+self_modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
 layout_mode = 0
-offset_left = 946.0
-offset_top = 417.0
-offset_right = 946.0
-offset_bottom = 417.0
+offset_left = 730.0
+offset_top = 194.0
+offset_right = 830.0
+offset_bottom = 294.0
+scale = Vector2(2.63603, 2.94625)
 attributes = SubResource("Resource_3m7vd")
 buffs = SubResource("Resource_6jc26")
 deck_dict = {
@@ -100,6 +104,24 @@ deck_dict = {
 "shadow_def": 3
 }
 deck_array = Array[String](["shadow_atk", "shadow_def"])
+
+[node name="HPComponent" parent="Enemies/Shade Bubble" index="0"]
+offset_left = 46.2816
+offset_top = -16.9707
+offset_right = -49.7184
+offset_bottom = 10.0293
+scale = Vector2(1.01798, 0.549042)
+
+[node name="SelectionArrow" parent="Enemies/Shade Bubble" index="1"]
+offset_left = -16.6165
+offset_top = -53.2881
+offset_right = 111.383
+offset_bottom = 74.7119
+
+[node name="AnimatedSprite2D" parent="Enemies/Shade Bubble" index="2"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(50.4546, 50.5728)
+scale = Vector2(0.0675598, 0.0517967)
 
 [node name="LabelContainer" type="VBoxContainer" parent="."]
 anchors_preset = 5
@@ -125,3 +147,5 @@ theme_override_font_sizes/font_size = 24
 text = "Floor 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[editable path="Enemies/Shade Bubble"]

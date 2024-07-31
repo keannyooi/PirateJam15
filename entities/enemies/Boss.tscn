@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c70gtxxy2lcdd"]
+
+[ext_resource type="Script" path="res://entities/enemies/enemy.gd" id="1_umjtm"]
+[ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/TestEnemyAttributes.tres" id="2_d26x4"]
+[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="3_0pr25"]
+[ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_0ppvf"]
+[ext_resource type="Texture2D" uid="uid://dfju7e7pso5d2" path="res://icon.svg" id="5_jxc7r"]
+[ext_resource type="Texture2D" uid="uid://b0uqrn5kcgqt4" path="res://assets/sprites/FATE.png" id="6_nqwcd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8db6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_nqwcd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TestEnemy" type="Button"]
+modulate = Color(1, 0, 0, 1)
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 277.0
+offset_bottom = 357.0
+script = ExtResource("1_umjtm")
+attributes = ExtResource("2_d26x4")
+buffs = ExtResource("3_0pr25")
+deck_array = Array[String](["basic_atk"])
+
+[node name="HPComponent" parent="." instance=ExtResource("4_0ppvf")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -45.0
+offset_right = 0.0
+offset_bottom = -18.0
+grow_horizontal = 2
+
+[node name="SelectionArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = -111.0
+offset_right = 114.0
+offset_bottom = 17.0
+grow_horizontal = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_jxc7r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(137, 178.5)
+scale = Vector2(0.146965, 0.14478)
+sprite_frames = SubResource("SpriteFrames_8db6q")
+frame_progress = 0.099094

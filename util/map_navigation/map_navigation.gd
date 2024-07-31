@@ -17,7 +17,7 @@ func _ready() -> void:
 	while not node_list.is_empty(): #Go through every existing node
 		var node = node_list.pop_front() #remove current node from the list
 		visited_node_list.push_back(node) #Add current node to visited list
-		for new_node in node.future_nodes: #Go through every future node the current node coud connect to
+		for new_node in node.future_nodes: #Go through every future node the current node could connect to
 			if (not visited_node_list.has(new_node)) and (not node_list.has(new_node)): #If that node is not in our list, add it.
 				node_list.push_back(new_node)
 		node.pressed.connect(select_node.bind(node)) #connect node to linked scene

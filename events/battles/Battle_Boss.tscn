@@ -1,0 +1,111 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1ges601d22pa"]
+
+[ext_resource type="Script" path="res://events/battles/battle.gd" id="1_ys52r"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_y5gl5"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_vpde5"]
+[ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="4_3jpy3"]
+[ext_resource type="Script" path="res://entities/player/player.gd" id="5_kq7wu"]
+[ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="6_8pyv1"]
+[ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="7_ey7yw"]
+[ext_resource type="Texture2D" uid="uid://d3xicgnutdjw2" path="res://assets/sprites/ego_slots_atlas.tres" id="8_7apmj"]
+[ext_resource type="Script" path="res://resources/AttributesResource.gd" id="10_er5w4"]
+[ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="12_7qnx1"]
+[ext_resource type="PackedScene" uid="uid://c70gtxxy2lcdd" path="res://entities/enemies/Boss.tscn" id="12_oxh4q"]
+[ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="13_rdmp1"]
+
+[node name="BattleTemplate" type="CanvasLayer"]
+script = ExtResource("1_ys52r")
+CARD_ID_ARRAY = Array[String](["fire_def", "water_def", "air_atk"])
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("2_y5gl5")
+pause_menu_packed = ExtResource("3_vpde5")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player" parent="." instance=ExtResource("4_3jpy3")]
+offset_left = 147.0
+offset_top = 428.0
+offset_right = 275.0
+offset_bottom = 556.0
+script = ExtResource("5_kq7wu")
+
+[node name="CardHandHUD" parent="." instance=ExtResource("6_8pyv1")]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = 576.0
+
+[node name="EGODisplayHUD" parent="." instance=ExtResource("7_ey7yw")]
+ego_slot_atlas = ExtResource("8_7apmj")
+
+[node name="BackgroundDim" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="CardDeselectButton" type="TextureButton" parent="BackgroundDim"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Enemies" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Boss" parent="Enemies" instance=ExtResource("12_oxh4q")]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 183.0
+offset_right = 986.0
+offset_bottom = 539.0
+attributes = ExtResource("10_er5w4")
+deck_dict = {
+"air_def": 3,
+"earth_def": 3,
+"fire_atk": 3,
+"shadow_atk": 3,
+"water_atk": 3
+}
+deck_array = Array[String](["shadow_atk", "fire_atk", "water_atk", "earth_def", "air_def"])
+
+[node name="LabelContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -53.0
+offset_right = 53.0
+offset_bottom = 94.0
+grow_horizontal = 2
+
+[node name="TurnLabel" type="Label" parent="LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Turn 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FloorLabel" type="Label" parent="LabelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Floor 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardSelectionPopup" parent="." instance=ExtResource("12_7qnx1")]
+script = ExtResource("13_rdmp1")

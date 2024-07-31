@@ -20,4 +20,27 @@
 		".........................................................",
 		"BUT I WANNA DIE"
 	],
+	"MushroomForestOpen": [
+		"The sounds go quiet arround you.",
+		"Before you is a giant mushroom.",
+		"A giant, luminous, blue mushroom",
+		"You blink your eyes, and notice three cards on the ground.",
+		"Seeing no-one nearby, you reach out to take one."
+	],
+	"MushroomForestClose": [
+		"A loud screach comes from nearby.",
+		"The shadows are coming closer.",
+		"Disapointed to only get the one card, you run off to continue your journey."
+	],
+	"shopScriptOpen": [
+		"Hi, I'm Burt!",
+		"Welcome to my humble shop.",
+		"You look like a nice enough fellow, Would you like a card?",
+		"Normally I'd charge you, but the developers aren't done yet...",
+		"So you can have it for FREE!",
+		"Which Card do you want?",
+	],
+	"shopScriptClose": [
+		"Remember not to forget!",
+	],
 }

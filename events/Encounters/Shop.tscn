@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1rwikckmbmx3"]
+
+[ext_resource type="Script" path="res://events/event.gd" id="1_aptqt"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_i4bes"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_hxqir"]
+[ext_resource type="TileSet" uid="uid://btflq2r7xu3e2" path="res://assets/tilesets/shadow_tileset.tres" id="4_7ii5a"]
+[ext_resource type="PackedScene" uid="uid://ci74sf8sm3v20" path="res://events/dialogs/narration_system.tscn" id="5_wsd17"]
+[ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="6_tbnfm"]
+[ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="7_7cofs"]
+[ext_resource type="Texture2D" uid="uid://b6drqkvg7qn1m" path="res://assets/sprites/BURT.png" id="8_lkraf"]
+
+[node name="EventTemplate" type="Node2D"]
+script = ExtResource("1_aptqt")
+CARD_ID_ARRAY = Array[String](["blood_atk", "blood_def", "shadow_def", "shadow_atk"])
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("2_i4bes")
+pause_menu_packed = ExtResource("3_hxqir")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("4_7ii5a")
+format = 2
+layer_0/name = "shadow"
+
+[node name="NarrationSystem" parent="." instance=ExtResource("5_wsd17")]
+opening_narration_key = "shopScriptOpen"
+closing_narration_key = "shopScriptClose"
+
+[node name="CardSelectionPopup" parent="." instance=ExtResource("6_tbnfm")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 634.0
+offset_top = 397.0
+offset_right = 634.0
+offset_bottom = 397.0
+grow_horizontal = 1
+grow_vertical = 1
+script = ExtResource("7_7cofs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(902, 164)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_lkraf")

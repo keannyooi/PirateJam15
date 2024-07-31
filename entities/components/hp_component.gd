@@ -3,7 +3,6 @@ extends ProgressBar
 
 @onready var animation_timer: Timer = $AnimationTimer
 
-
 func update(hp: float) -> void:
 	var tween: Tween = self.create_tween()\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)

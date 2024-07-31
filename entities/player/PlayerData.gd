@@ -3,6 +3,7 @@ extends Node
 @onready var attributes: Attributes = load("res://entities/player/DefaultPlayerAttributes.tres")
 @onready var buffs: BuffAttributes = load("res://entities/player/DefaultPlayerBuffAttributes.tres")
 @onready var start_deck: Deck = load("res://entities/player/DefaultPlayerDeck.tres")
+@onready var hp_component: HPComponent
 
 const BASIC = CardManager.CardType.BASIC
 const BLOOD = CardManager.CardType.BLOOD
@@ -86,7 +87,7 @@ func add_to_side_deck(id: String) -> void:
 	
 func recover_hp(hp: float) -> void:
 	hp = min(hp + hp, hp_max) 
-	$HPComponent.update(hp)
+	$HPComponent.update(hp/hp_max)
 	
 func setAttributes(floor_level, egoArray):
 	var total_ego = 0

@@ -106,7 +106,7 @@ deck_dict = {
 "shadow_atk": 3,
 "shadow_def": 3
 }
-deck_array = Array[String](["shadow_atk", "shadow_def"])
+deck_array = Array[String](["shadow_atk", "shadow_atk"])
 
 [node name="HPComponent" parent="Enemies/Shade Bubble" index="0"]
 offset_left = 46.661
@@ -155,4 +155,3 @@ vertical_alignment = 1
 script = ExtResource("13_jskvv")
 
 [editable path="Enemies/Shade Bubble"]
-[editable path="CardSelectionPopup"]

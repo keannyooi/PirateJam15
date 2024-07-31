@@ -1,5 +1,5 @@
 @tool
-class_name Credits
+class_name Credit
 extends Control
 
 signal end_reached

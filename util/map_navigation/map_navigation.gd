@@ -1,6 +1,9 @@
 class_name MapNavigation
 extends CanvasLayer
 
+@export var floor_number: int = 1
+@export var boss_node: MapNode
+@export var end_node: MapNode
 @export var root_node: MapNode
 
 @onready var map_nodes: Control = $MapNodes
@@ -63,6 +66,7 @@ func select_node(node: MapNode) -> void:
 	%Event.add_child(new_event)
 	%MapNodes.hide()
 	
+
 func update_node_status():
 	if PlayerData.completed_nodes.is_empty():
 		root_node.update_status(MapNode.NodeStatus.UNLOCKED)

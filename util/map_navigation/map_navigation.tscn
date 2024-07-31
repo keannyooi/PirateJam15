@@ -1,13 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi7031x3e3u2f"]
 
 [ext_resource type="Script" path="res://util/map_navigation/map_navigation.gd" id="1_8mse3"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="2_8p0cs"]
 [ext_resource type="PackedScene" uid="uid://cpjjg11r6w2o4" path="res://util/map_navigation/map_node.tscn" id="2_s0w17"]
 [ext_resource type="PackedScene" uid="uid://dearka46mr1hn" path="res://events/battles/battle_template.tscn" id="3_jg6e4"]
 [ext_resource type="PackedScene" uid="uid://chysc16f2ioxs" path="res://events/event_template.tscn" id="4_g51t3"]
+[ext_resource type="AudioStream" uid="uid://dwgr3cxj88nxw" path="res://assets/bgm/haunted subterrainian clocks.mp3" id="3_6brn1"]
 
-[node name="MapNavigation" type="CanvasLayer" node_paths=PackedStringArray("root_node")]
+[node name="MapNavigation" type="CanvasLayer" node_paths=PackedStringArray("boss_node", "end_node", "root_node")]
 script = ExtResource("1_8mse3")
+boss_node = NodePath("MapNodes/BossNode")
+end_node = NodePath("MapNodes/EndNode")
 root_node = NodePath("MapNodes/RootNode")
+
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("2_8p0cs")]
+stream = ExtResource("3_6brn1")
+bus = &"BGM"
 
 [node name="MapNodes" type="Control" parent="."]
 unique_name_in_owner = true
@@ -18,6 +26,9 @@ anchors_preset = 0
 layout_mode = 0
 future_nodes = [NodePath("../Node2")]
 linked_scene = ExtResource("3_jg6e4")
+offset_right = 21.0
+offset_bottom = 28.0
+scene_link = "res://events/battles/battle_template.tscn"
 
 [node name="Node2" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
@@ -69,7 +80,7 @@ previous_nodes = [NodePath("../Node3"), NodePath("../Node5")]
 future_nodes = [NodePath("../Node7")]
 linked_scene = ExtResource("4_g51t3")
 
-[node name="Node7" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+[node name="BossNode" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
 offset_left = 535.0
 offset_top = 306.0
@@ -102,3 +113,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [connection signal="child_exiting_tree" from="Event" to="." method="_on_event_child_exiting_tree"]
+
+[node name="EndNode" parent="MapNodes" node_paths=PackedStringArray("previous_nodes") instance=ExtResource("2_s0w17")]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 370.0
+offset_right = 722.0
+offset_bottom = 401.0
+previous_nodes = [NodePath("../BossNode")]

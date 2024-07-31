@@ -260,14 +260,13 @@ func player_victory() -> void:
 	print("A WINNER IS YOU")
 	card_hand_hud.hide_hand()
 	card_selection_popup.prompt_card_choice(CARD_ID_ARRAY)
-	
+
 func choose_card(card_id: String) -> void:
 	
 	PlayerData.add_card_to_deck(card_id)
 	
 	next_event.show()
 	parent.remove_child(self)
-
 
 func sum_lambda(a: int, b: int) -> int:
 	return a + b

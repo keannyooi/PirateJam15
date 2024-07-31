@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dearka46mr1hn"]
+[gd_scene load_steps=18 format=3 uid="uid://dearka46mr1hn"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_sw14v"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_a7vt7"]

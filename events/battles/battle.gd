@@ -111,7 +111,6 @@ func execution_phase(enemy: Enemy = null) -> void:
 	deselect_card()
 	
 	# use up ego
-	var total_cost: int = current_card.cost_array.reduce(sum_lambda)
 	CardManager.subtract_ego(ego, current_card.cost_array)
 	
 	if current_card.function[CardManager.CardFunction.HP] != 0:
@@ -140,7 +139,7 @@ func execution_phase(enemy: Enemy = null) -> void:
 	card_hand_hud.play_card(current_card)
 	ego_display_hud.update_ego(ego)
 	
-func calculate_hp_change(floor_level, deck_size, hp, buff, egos) -> int:
+func calculate_hp_change(floor_level, deck_size, hp, buff, _egos) -> int:
 	var base = floor_level + deck_size
 	var card_use_value = (hp * buff) / base 
 	return card_use_value

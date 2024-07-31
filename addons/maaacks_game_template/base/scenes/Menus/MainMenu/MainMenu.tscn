@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="2_qvrrd"]
-[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/LoadingScreen/Credits/Credits.tscn" id="3_5dhvp"]
+[ext_resource type="PackedScene" uid="uid://t2dui8ppm3a4" path="res://addons/maaacks_game_template/base/scenes/Credits/Credits.tscn" id="3_dq5hd"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/CaptureFocus.gd" id="4_l1ebe"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="4_w8sbm"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="6_bs342"]
@@ -19,7 +19,7 @@ grow_vertical = 2
 script = ExtResource("1")
 game_scene_path = "res://util/map_navigation/map_navigation.tscn"
 options_packed_scene = ExtResource("2_qvrrd")
-credits_packed_scene = ExtResource("3_5dhvp")
+credits_packed_scene = ExtResource("3_dq5hd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -19,6 +19,8 @@ func _ready() -> void:
 	node_list.push_back(root_node)
 	while not node_list.is_empty(): #Go through every existing node
 		var node = node_list.pop_front() #remove current node from the list
+		print(node.get_name())
+		
 		visited_node_list.push_back(node) #Add current node to visited list
 		for new_node in node.future_nodes: #Go through every future node the current node coud connect to
 			if (not visited_node_list.has(new_node)) and (not node_list.has(new_node)): #If that node is not in our list, add it.
@@ -79,7 +81,7 @@ func update_node_status():
 	for node in current_node.future_nodes: #Unlock nodes that can be visited
 		node.update_status(MapNode.NodeStatus.UNLOCKED)
 
-func _on_event_child_exiting_tree(node):
+func _on_event_child_exiting_tree(_node):
 	PlayerData.completed_nodes.push_back(current_node)
 	update_node_status()
 	%MapNodes.show()

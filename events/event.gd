@@ -8,6 +8,7 @@ extends Node2D
 @onready var card_selection_popup: CardSelectionPopup = $CardSelectionPopup
 @onready var narration_system: NarrationSystem = $NarrationSystem
 
+#These allow interfacing with scenes that call this one.
 var parent
 var next_event
 

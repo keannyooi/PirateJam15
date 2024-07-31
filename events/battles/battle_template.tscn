@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dearka46mr1hn"]
+[gd_scene load_steps=16 format=3 uid="uid://dearka46mr1hn"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_sw14v"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_a7vt7"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://resources/AttributesResource.gd" id="6_orfe6"]
 [ext_resource type="Texture2D" uid="uid://d3xicgnutdjw2" path="res://assets/sprites/ego_slots_atlas.tres" id="7_puvto"]
 [ext_resource type="Script" path="res://resources/BuffsResource.gd" id="10_xrscj"]
+[ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="12_t0yq5"]
+[ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="13_jskvv"]
 
 [sub_resource type="Resource" id="Resource_3m7vd"]
 script = ExtResource("6_orfe6")
@@ -37,6 +39,7 @@ res_block = 1.0
 
 [node name="BattleTemplate" type="CanvasLayer"]
 script = ExtResource("1_sw14v")
+CARD_ID_ARRAY = Array[String](["fire_def", "water_def", "air_atk"])
 
 [node name="PauseMenuController" type="Node" parent="."]
 script = ExtResource("2_a7vt7")
@@ -148,4 +151,8 @@ text = "Floor 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CardSelectionPopup" parent="." instance=ExtResource("12_t0yq5")]
+script = ExtResource("13_jskvv")
+
 [editable path="Enemies/Shade Bubble"]
+[editable path="CardSelectionPopup"]

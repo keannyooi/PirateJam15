@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @export var ego_slot_scene: PackedScene
 @export var floor_number: int = 1
+@export var CARD_ID_ARRAY: Array[String] #Cards for battle victory
 
 @onready var background_dim: ColorRect = $BackgroundDim
 @onready var card_deselect_button: TextureButton = %CardDeselectButton
@@ -12,6 +13,7 @@ extends CanvasLayer
 @onready var floor_label: Label = %FloorLabel
 @onready var player: Player = $Player
 @onready var turn_label: Label = %TurnLabel
+@onready var card_selection_popup: CardSelectionPopup = $CardSelectionPopup
 
 var attack_order: Array = []
 var current_turn = 0
@@ -21,11 +23,18 @@ var ego: Array = [0, 0, 0, 0, 0, 0, 0] #is modified
 var ego_multiplier: Array = [0, 0, 0, 0, 0, 0, 0]
 
 
+
+#These allow interfacing with scenes that call this one.
+var parent
+var next_event
+
+
 func _ready() -> void:
 	if enemies_node.get_child_count() < 1:
 		push_error("ERROR: no enemies found as children of Enemies node")
 		return
-	
+	card_selection_popup.hide()
+	card_selection_popup.card_selected.connect(choose_card)
 	# connect signals
 	GlobalSignalBus.enemy_defeated.connect(handle_enemy_defeat)
 	GlobalSignalBus.select_card.connect(card_selected_phase)
@@ -250,7 +259,15 @@ func init_ego() -> void:
 func player_victory() -> void:
 	print("A WINNER IS YOU")
 	card_hand_hud.hide_hand()
+	card_selection_popup.prompt_card_choice(CARD_ID_ARRAY)
 	
+func choose_card(card_id: String) -> void:
+	
+	PlayerData.add_card_to_deck(card_id)
+	
+	next_event.show()
+	parent.remove_child(self)
+
 
 func sum_lambda(a: int, b: int) -> int:
 	return a + b

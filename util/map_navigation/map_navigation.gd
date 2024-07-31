@@ -12,6 +12,7 @@ var visited_node_list: Array = [] #Initialize with root node
 	
 func _ready() -> void:
 	# assign unique ids to nodes
+	current_node = root_node
 	node_list.push_back(root_node)
 	while not node_list.is_empty(): #Go through every existing node
 		var node = node_list.pop_front() #remove current node from the list
@@ -52,26 +53,21 @@ func _ready() -> void:
 	
 
 func select_node(node: MapNode) -> void:
+	for future_node in current_node.future_nodes: #Lock all node paths that have been ignored
+		future_node.update_status(MapNode.NodeStatus.LOCKED)
+	# Update Current Node
 	current_node = node
 	var new_event = node.linked_scene.instantiate()
 	new_event.parent = %Event
 	new_event.next_event = %MapNodes
 	%Event.add_child(new_event)
 	%MapNodes.hide()
-	#if linked_scene == null:
-		#%Event.hide()
-	#else:
-		#var new_event = linked_scene.instantiate()
-		#new_event.hide()
-		#%Event.call_deferred("add_child", new_event)
-		#print(get_tree_string_pretty())
-	#SceneLoaderClass.change_scene_to_packed(linked_scene)
 	
 func update_node_status():
 	if PlayerData.completed_nodes.is_empty():
 		root_node.update_status(MapNode.NodeStatus.UNLOCKED)
 		PlayerData.completed_nodes.push_back(root_node)
-	
+		
 	for node in PlayerData.completed_nodes: #All nodes that have been visited are completed
 		node.update_status(MapNode.NodeStatus.COMPLETED)
 		

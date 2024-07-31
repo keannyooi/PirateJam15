@@ -48,9 +48,10 @@ func draw_new_cards() -> void:
 
 func hide_hand() -> void:
 	# animate out the hud
-	var tween: Tween = self.create_tween() \
-		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position:y", 675, TWEEN_TIME)
+	var tween: Tween = self.create_tween()
+	if tween != null:
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(self, "position:y", 675, TWEEN_TIME)
 	
 
 func init_hand() -> void:

@@ -33,20 +33,22 @@ func prompt_card_choice(card_id_array: Array[String]) -> void:
 	
 	self.show()
 	
-	var tween: Tween = self.create_tween().set_ease(Tween.EASE_OUT) \
-		.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position:y", original_pos_y, \
-		POPUP_ANIMATION_DURATION)
+	var tween: Tween = self.create_tween()
+	if tween != null:
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(self, "position:y", original_pos_y, \
+			POPUP_ANIMATION_DURATION)
 	
 
 func select_card(card_id: String) -> void:
 	print(card_id)
 	card_selected.emit(card_id)
 	
-	var tween: Tween = self.create_tween().set_ease(Tween.EASE_OUT) \
-		.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position:y", original_pos_y + 500, \
-		POPUP_ANIMATION_DURATION)
+	var tween: Tween = self.create_tween()
+	if tween != null:
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(self, "position:y", original_pos_y + 500, \
+			POPUP_ANIMATION_DURATION)
 	
 
 func show_card_details(card_id: String) -> void:

@@ -28,16 +28,7 @@ func _ready() -> void:
 		node.pressed.connect(select_node.bind(node)) #connect node to linked scene
 		node.update_status(MapNode.NodeStatus.LOCKED) #default nodes to LOCKED
 	
-	if PlayerData.completed_nodes.is_empty():
-		root_node.update_status(MapNode.NodeStatus.UNLOCKED)
-		PlayerData.completed_nodes.push_back(root_node)
-	
-	for node in PlayerData.completed_nodes: #All nodes that have been visited are completed
-		node.update_status(MapNode.NodeStatus.COMPLETED)
-		
-	current_node = PlayerData.completed_nodes.back()
-	for node in current_node.future_nodes: #Unlock nodes that can be visited
-		node.update_status(MapNode.NodeStatus.UNLOCKED)
+	update_node_status()
 	
 	#var i = 1"indices/0"
 	#for node in map_nodes.get_children():

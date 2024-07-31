@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddtmk7b11kswr"]
+
+[ext_resource type="Texture2D" uid="uid://djtc8425tl84m" path="res://icon.svg" id="1_myt21"]
+[ext_resource type="Script" path="res://entities/enemies/defaults/enemy.gd" id="2_e2fuj"]
+[ext_resource type="Resource" uid="uid://bnx0p86akxw0n" path="res://entities/enemies/defaults/TestEnemyAttributes.tres" id="3_rlqxe"]
+[ext_resource type="PackedScene" uid="uid://c7gkegyan5158" path="res://entities/components/hp_component.tscn" id="4_2ntq2"]
+[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="4_rjt2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jmdd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g1ee"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rotre"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51afw"]
+
+[node name="TestEnemy" type="Button"]
+offset_right = 275.0
+offset_bottom = 356.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jmdd0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3g1ee")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rotre")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_51afw")
+script = ExtResource("2_e2fuj")
+attributes = ExtResource("3_rlqxe")
+buffs = ExtResource("4_rjt2h")
+deck_array = Array[String](["basic_atk"])
+
+[node name="HPComponent" parent="." instance=ExtResource("4_2ntq2")]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -45.0
+offset_right = 0.0
+offset_bottom = -18.0
+grow_horizontal = 2
+
+[node name="SelectionArrow" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.5
+offset_top = -103.0
+offset_right = 113.5
+offset_bottom = 25.0
+grow_horizontal = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_myt21")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(138.5, 177.95)
+scale = Vector2(0.182993, 0.181389)

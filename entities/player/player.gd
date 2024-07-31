@@ -1,5 +1,5 @@
 class_name Player
-extends TextureRect
+extends Control
 
 signal player_died
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Attributes" load_steps=2 format=3 uid="uid://bnx0p86akxw0n"]
+
+[ext_resource type="Script" path="res://resources/AttributesResource.gd" id="1_j6a1h"]
+
+[resource]
+script = ExtResource("1_j6a1h")
+hp = 10.0
+atk = 2.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 5.0
+def_block = 0.0
+res_block = 0.0

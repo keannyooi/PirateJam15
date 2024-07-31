@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1ges601d22pa"]
+[gd_scene load_steps=17 format=3 uid="uid://c1ges601d22pa"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_ys52r"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_y5gl5"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_vpde5"]
 [ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="4_3jpy3"]
+[ext_resource type="Texture2D" uid="uid://cgsnv7rjah5g5" path="res://assets/bgart/sosBG.jpg" id="4_kxlvl"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="5_kq7wu"]
 [ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="6_8pyv1"]
 [ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="7_ey7yw"]
@@ -11,7 +12,7 @@
 [ext_resource type="Script" path="res://resources/AttributesResource.gd" id="10_er5w4"]
 [ext_resource type="Script" path="res://resources/BuffsResource.gd" id="11_3sx13"]
 [ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="12_7qnx1"]
-[ext_resource type="PackedScene" uid="uid://c70gtxxy2lcdd" path="res://entities/enemies/Boss.tscn" id="12_oxh4q"]
+[ext_resource type="PackedScene" uid="uid://dsdfpfceblwa3" path="res://entities/enemies/fate_boss.tscn" id="12_oxh4q"]
 [ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="13_rdmp1"]
 
 [sub_resource type="Resource" id="Resource_eg647"]
@@ -48,6 +49,8 @@ pause_menu_packed = ExtResource("3_vpde5")
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.307, 0.307)
+texture = ExtResource("4_kxlvl")
 
 [node name="Player" parent="." instance=ExtResource("4_3jpy3")]
 offset_left = 147.0

@@ -1,26 +1,57 @@
-[gd_scene load_steps=8 format=3 uid="uid://dop5sblox4ue5"]
+[gd_scene load_steps=14 format=3 uid="uid://bi7031x3e3u2f"]
 
 [ext_resource type="Script" path="res://util/map_navigation/map_navigation.gd" id="1_8mse3"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="2_8p0cs"]
 [ext_resource type="PackedScene" uid="uid://cpjjg11r6w2o4" path="res://util/map_navigation/map_node.tscn" id="2_s0w17"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_voyd4"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_66yml"]
 [ext_resource type="PackedScene" uid="uid://dearka46mr1hn" path="res://events/battles/battle_template.tscn" id="3_jg6e4"]
+[ext_resource type="AudioStream" uid="uid://b6t3r8dwcpa73" path="res://assets/bgm/Waltz of The Lost Woman.mp3" id="3_t2aia"]
+[ext_resource type="PackedScene" path="res://util/map_navigation/attributes_hud.tscn" id="4_mefon"]
 [ext_resource type="PackedScene" uid="uid://b1rwikckmbmx3" path="res://events/Encounters/Shop.tscn" id="4_rr0kx"]
-[ext_resource type="PackedScene" uid="uid://bhrrsl0npg6vl" path="res://events/battles/Battle_2_Shades.tscn" id="4_yai0q"]
+[ext_resource type="PackedScene" uid="uid://536714iyulmn" path="res://events/battles/Battle_2_Shades.tscn" id="4_yai0q"]
+[ext_resource type="PackedScene" uid="uid://xcq60pxt87by" path="res://events/battles/Battle_1_Shade.tscn" id="5_1fwnw"]
 [ext_resource type="PackedScene" uid="uid://c1ges601d22pa" path="res://events/battles/Battle_Boss.tscn" id="6_itwrp"]
 [ext_resource type="PackedScene" uid="uid://05q8mj1pncsn" path="res://events/Encounters/Mushroom_Forest.tscn" id="6_wkayl"]
 
-[node name="MapNavigation" type="CanvasLayer" node_paths=PackedStringArray("root_node")]
+[node name="MapNavigation" type="CanvasLayer" node_paths=PackedStringArray("boss_node", "root_node")]
 script = ExtResource("1_8mse3")
+boss_node = NodePath("MapNodes/Node8")
 root_node = NodePath("MapNodes/RootNode")
+
+[node name="PauseMenuController" type="Node" parent="."]
+script = ExtResource("2_voyd4")
+pause_menu_packed = ExtResource("3_66yml")
+
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("2_8p0cs")]
+stream = ExtResource("3_t2aia")
+
+[node name="AttributesHUD" parent="." instance=ExtResource("4_mefon")]
 
 [node name="MapNodes" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
+offset_left = 320.0
+offset_top = 156.0
+offset_right = 320.0
+offset_bottom = 156.0
 
 [node name="RootNode" parent="MapNodes" node_paths=PackedStringArray("future_nodes") instance=ExtResource("2_s0w17")]
+visible = false
 layout_mode = 0
-future_nodes = [NodePath("../Node2")]
+future_nodes = [NodePath("../Node1")]
 linked_scene = ExtResource("3_jg6e4")
+
+[node name="Node1" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -1.0
+offset_right = 13.0
+offset_bottom = 30.0
+previous_nodes = [NodePath("../RootNode")]
+future_nodes = [NodePath("../Node2")]
+linked_scene = ExtResource("5_1fwnw")
 
 [node name="Node2" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
@@ -28,9 +59,9 @@ offset_left = 80.0
 offset_top = 79.0
 offset_right = 101.0
 offset_bottom = 110.0
-previous_nodes = [NodePath("../RootNode")]
+previous_nodes = [NodePath("../Node1")]
 future_nodes = [NodePath("../Node3"), NodePath("../Node4")]
-linked_scene = ExtResource("3_jg6e4")
+linked_scene = ExtResource("5_1fwnw")
 
 [node name="Node3" parent="MapNodes" node_paths=PackedStringArray("previous_nodes", "future_nodes") instance=ExtResource("2_s0w17")]
 layout_mode = 0
@@ -120,5 +151,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
 
 [connection signal="child_exiting_tree" from="Event" to="." method="_on_event_child_exiting_tree"]

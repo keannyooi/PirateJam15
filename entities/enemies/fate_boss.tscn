@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsdfpfceblwa3"]
+
+[ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/defaults/test_enemy.tscn" id="1_3exhd"]
+[ext_resource type="Texture2D" uid="uid://dy1r3fkd1degr" path="res://assets/sprites/FATE.png" id="2_e2siy"]
+
+[node name="TestEnemy" instance=ExtResource("1_3exhd")]
+
+[node name="HPComponent" parent="." index="0"]
+offset_right = 44.0
+
+[node name="SelectionArrow" parent="." index="1"]
+offset_left = 5.5
+offset_top = -101.0
+offset_right = 133.5
+offset_bottom = 27.0
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(153.948, 200.666)
+scale = Vector2(0.1643, 0.16286)
+texture = ExtResource("2_e2siy")

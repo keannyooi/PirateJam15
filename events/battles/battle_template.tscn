@@ -1,50 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://dearka46mr1hn"]
+[gd_scene load_steps=12 format=3 uid="uid://dearka46mr1hn"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_sw14v"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_a7vt7"]
 [ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="2_r14ym"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="2_rx53a"]
-[ext_resource type="AudioStream" uid="uid://lh4864gjj54" path="res://assets/bgm/instrument fight.mp3" id="3_817hg"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_ga8ma"]
+[ext_resource type="AudioStream" uid="uid://b5et71yx7hxc6" path="res://assets/bgm/BATTLE!.mp3" id="3_vts0n"]
 [ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="4_lvjpo"]
 [ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="4_yq8u1"]
-[ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/test_enemy.tscn" id="5_gdlqn"]
 [ext_resource type="Script" path="res://entities/player/player.gd" id="5_v2vfh"]
-[ext_resource type="Script" path="res://resources/AttributesResource.gd" id="6_orfe6"]
-[ext_resource type="Texture2D" uid="uid://d3xicgnutdjw2" path="res://assets/sprites/ego_slots_atlas.tres" id="7_puvto"]
-[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="10_xrscj"]
 [ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="12_t0yq5"]
 [ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="13_jskvv"]
-
-[sub_resource type="Resource" id="Resource_3m7vd"]
-script = ExtResource("6_orfe6")
-hp = 5.0
-atk = 27.0
-def = 9.0
-mys = 9.0
-res = 9.0
-spd = 3.0
-hp_max = 0.0
-def_block = 0.0
-res_block = 0.0
-
-[sub_resource type="Resource" id="Resource_kfba2"]
-script = ExtResource("10_xrscj")
-hp = 1.0
-atk = 1.0
-def = 1.0
-mys = 1.0
-res = 1.0
-spd = 1.0
-def_block = 1.0
-res_block = 1.0
 
 [node name="BattleTemplate" type="CanvasLayer"]
 script = ExtResource("1_sw14v")
 CARD_ID_ARRAY = Array[String](["fire_def", "water_def", "air_atk"])
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("2_rx53a")]
-stream = ExtResource("3_817hg")
+stream = ExtResource("3_vts0n")
+volume_db = -5.0
 bus = &"BGM"
 
 [node name="PauseMenuController" type="Node" parent="."]
@@ -56,10 +30,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource("2_r14ym")]
-offset_left = 147.0
-offset_top = 428.0
-offset_right = 275.0
-offset_bottom = 556.0
+offset_left = 219.0
+offset_top = 342.0
+offset_right = 322.0
+offset_bottom = 515.0
 script = ExtResource("5_v2vfh")
 
 [node name="CardHandHUD" parent="." instance=ExtResource("4_yq8u1")]
@@ -71,7 +45,6 @@ offset_left = -576.0
 offset_right = 576.0
 
 [node name="EGODisplayHUD" parent="." instance=ExtResource("4_lvjpo")]
-ego_slot_atlas = ExtResource("7_puvto")
 
 [node name="BackgroundDim" type="ColorRect" parent="."]
 visible = false
@@ -95,42 +68,6 @@ grow_vertical = 2
 [node name="Enemies" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-
-[node name="Shade Bubble" parent="Enemies" instance=ExtResource("5_gdlqn")]
-modulate = Color(0.716296, 0.716296, 0.716296, 1)
-self_modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
-layout_mode = 0
-offset_left = 730.0
-offset_top = 194.0
-offset_right = 830.0
-offset_bottom = 294.0
-scale = Vector2(2.63603, 2.94625)
-attributes = SubResource("Resource_3m7vd")
-buffs = SubResource("Resource_kfba2")
-deck_dict = {
-"shadow_atk": 3,
-"shadow_def": 3
-}
-deck_array = Array[String](["shadow_atk", "shadow_atk"])
-
-[node name="HPComponent" parent="Enemies/Shade Bubble" index="0"]
-offset_left = 46.661
-offset_top = -16.9707
-offset_right = -49.339
-offset_bottom = 10.0293
-scale = Vector2(1.01798, 0.549042)
-
-[node name="SelectionArrow" parent="Enemies/Shade Bubble" index="1"]
-offset_left = -16.6165
-offset_top = -53.2881
-offset_right = 111.383
-offset_bottom = 74.7119
-
-[node name="AnimatedSprite2D" parent="Enemies/Shade Bubble" index="2"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(50.4546, 50.5728)
-scale = Vector2(0.0675598, 0.0517967)
 
 [node name="LabelContainer" type="VBoxContainer" parent="."]
 anchors_preset = 5
@@ -160,4 +97,4 @@ vertical_alignment = 1
 [node name="CardSelectionPopup" parent="." instance=ExtResource("12_t0yq5")]
 script = ExtResource("13_jskvv")
 
-[editable path="Enemies/Shade Bubble"]
+[editable path="CardSelectionPopup"]

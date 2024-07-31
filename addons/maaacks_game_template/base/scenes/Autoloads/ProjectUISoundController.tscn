@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc37235kj4384"]
+[gd_scene load_steps=5 format=3 uid="uid://cc37235kj4384"]
 
 [ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="1_dmagn"]
 [ext_resource type="AudioStream" uid="uid://dkr7tgx2idwby" path="res://assets/sfx/switch13.ogg" id="2_ftq0v"]
 [ext_resource type="AudioStream" uid="uid://clp0brlynfr63" path="res://assets/sfx/switch11.ogg" id="3_5238k"]
+[ext_resource type="AudioStream" uid="uid://dd2hkthfk2x7q" path="res://assets/sfx/rollover3.ogg" id="4_l3bge"]
 
 [node name="ProjectUISoundController" type="Node"]
 script = ExtResource("1_dmagn")
@@ -12,3 +13,7 @@ button_pressed = ExtResource("3_5238k")
 tab_hovered = ExtResource("2_ftq0v")
 tab_changed = ExtResource("3_5238k")
 tab_selected = ExtResource("3_5238k")
+slider_hovered = ExtResource("2_ftq0v")
+slider_focused = ExtResource("2_ftq0v")
+slider_drag_started = ExtResource("4_l3bge")
+slider_drag_ended = ExtResource("4_l3bge")

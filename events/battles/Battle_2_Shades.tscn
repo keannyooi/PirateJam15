@@ -1,76 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhrrsl0npg6vl"]
+[gd_scene load_steps=4 format=3 uid="uid://536714iyulmn"]
 
 [ext_resource type="PackedScene" uid="uid://dearka46mr1hn" path="res://events/battles/battle_template.tscn" id="1_crq05"]
-[ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/test_enemy.tscn" id="2_ywmeg"]
-[ext_resource type="Script" path="res://resources/AttributesResource.gd" id="3_jmx6n"]
-[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="4_s7x6j"]
-
-[sub_resource type="Resource" id="Resource_3m7vd"]
-script = ExtResource("3_jmx6n")
-hp = 5.0
-atk = 27.0
-def = 9.0
-mys = 9.0
-res = 9.0
-spd = 3.0
-hp_max = 0.0
-def_block = 0.0
-res_block = 0.0
-
-[sub_resource type="Resource" id="Resource_6jc26"]
-script = ExtResource("4_s7x6j")
-hp = 1.0
-atk = 1.0
-def = 1.0
-mys = 1.0
-res = 1.0
-spd = 1.0
-def_block = 1.0
-res_block = 1.0
+[ext_resource type="PackedScene" uid="uid://dicuiq41n8py0" path="res://entities/enemies/shadow_bubble.tscn" id="2_3jmwf"]
+[ext_resource type="Texture2D" uid="uid://cgsnv7rjah5g5" path="res://assets/bgart/sosBG.jpg" id="2_di17n"]
 
 [node name="BattleTemplate" instance=ExtResource("1_crq05")]
 
-[node name="Shade Bubble" parent="Enemies" index="0"]
-offset_left = 838.0
-offset_top = 178.0
-offset_right = 938.0
-offset_bottom = 278.0
+[node name="Background" parent="." index="2"]
+offset_right = 3760.0
+offset_bottom = 2583.0
+scale = Vector2(0.307, 0.307)
+texture = ExtResource("2_di17n")
 
-[node name="Shade Bubble2" parent="Enemies" index="1" instance=ExtResource("2_ywmeg")]
-modulate = Color(0.716296, 0.716296, 0.716296, 1)
-self_modulate = Color(1, 1, 1, 0)
-show_behind_parent = true
+[node name="ShadowBubble2" parent="Enemies" index="0" instance=ExtResource("2_3jmwf")]
 layout_mode = 0
-offset_left = 569.0
-offset_top = 177.0
-offset_right = 669.0
-offset_bottom = 277.0
-scale = Vector2(2.63603, 2.94625)
-attributes = SubResource("Resource_3m7vd")
-buffs = SubResource("Resource_6jc26")
-deck_dict = {
-"shadow_atk": 3,
-"shadow_def": 3
-}
-deck_array = Array[String](["shadow_atk", "shadow_def"])
+offset_left = 874.0
+offset_top = 157.0
+offset_right = 1149.0
+offset_bottom = 513.0
 
-[node name="HPComponent" parent="Enemies/Shade Bubble2" index="0"]
-offset_left = 46.661
-offset_top = -16.9707
-offset_right = -49.339
-offset_bottom = 10.0293
-scale = Vector2(1.01798, 0.549042)
+[node name="ShadowBubble3" parent="Enemies" index="1" instance=ExtResource("2_3jmwf")]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 157.0
+offset_right = 928.0
+offset_bottom = 513.0
 
-[node name="SelectionArrow" parent="Enemies/Shade Bubble2" index="1"]
-offset_left = -16.6165
-offset_top = -53.2881
-offset_right = 111.383
-offset_bottom = 74.7119
-
-[node name="AnimatedSprite2D" parent="Enemies/Shade Bubble2" index="2"]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(50.4546, 50.5728)
-scale = Vector2(0.0675598, 0.0517967)
-
-[editable path="Enemies/Shade Bubble"]
-[editable path="Enemies/Shade Bubble2"]
+[editable path="CardSelectionPopup"]

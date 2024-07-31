@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dicuiq41n8py0"]
+
+[ext_resource type="PackedScene" uid="uid://ddtmk7b11kswr" path="res://entities/enemies/defaults/test_enemy.tscn" id="1_jwqw7"]
+[ext_resource type="Texture2D" uid="uid://k3m3x77kkn5e" path="res://assets/sprites/Shadowbubble.png" id="2_mxen7"]
+
+[node name="ShadowBubble" instance=ExtResource("1_jwqw7")]
+
+[node name="HPComponent" parent="." index="0"]
+offset_left = 38.0
+offset_top = 14.0
+offset_right = -38.0
+offset_bottom = 41.0
+
+[node name="SelectionArrow" parent="." index="1"]
+offset_left = -16.5
+offset_top = -44.0
+offset_right = 111.5
+offset_bottom = 84.0
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.12, 0.119)
+texture = ExtResource("2_mxen7")

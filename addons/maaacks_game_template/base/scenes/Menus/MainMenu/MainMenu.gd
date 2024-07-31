@@ -28,6 +28,7 @@ func _open_sub_menu(menu : Control):
 	sub_menu.show()
 	%BackButton.show()
 	%MenuContainer.hide()
+	%Logo.hide()
 
 func _close_sub_menu():
 	if sub_menu == null:
@@ -36,6 +37,7 @@ func _close_sub_menu():
 	sub_menu = null
 	%BackButton.hide()
 	%MenuContainer.show()
+	%Logo.show()
 
 func _event_is_mouse_button_released(event : InputEvent):
 	return event is InputEventMouseButton and not event.is_pressed()

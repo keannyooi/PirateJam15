@@ -10,6 +10,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lg4uk")
+h1_font_size = 40
+h2_font_size = 32
+h3_font_size = 24
+h4_font_size = 16
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -35,6 +39,54 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 5
 bbcode_enabled = true
+text = "[center]
+[font_size=24]Development Team[/font_size]
+
+[font_size=16]Game Design[/font_size]
+
+Bekicot
+SKAROT
+
+[font_size=16]Programming[/font_size]
+
+regen=Q
+Bekicot
+
+[font_size=24]Art Team[/font_size]
+
+[font_size=16]UI[/font_size]
+
+SKAROT
+Ruminio
+
+[font_size=16]Backgrounds & Assets[/font_size]
+
+SKAROT
+Felicity
+
+[font_size=24]Music Team[/font_size]
+
+[font_size=16]OST[/font_size]
+
+Skarot
+
+[font_size=16]Sound Effects[/font_size]
+
+(unknown)
+
+[font_size=24]Assets Used[/font_size]
+
+[font_size=16]Godot Game Template[/font_size]
+
+by [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
+
+[font_size=24]Special Thanks[/font_size]
+
+Thor @ Pirate Software
+and You
+
+[font_size=24]Made with Godot 4.2.1[/font_size]
+[/center]"
 fit_content = true
 scroll_active = false
 

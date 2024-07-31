@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cugk5ga01nmam"]
+
+[node name="AttributesHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 254.0
+offset_bottom = 187.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HPContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/HPContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HPBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/HPContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ATKContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ATKContainer"]
+layout_mode = 2
+text = "ATK: "
+
+[node name="ATKValueLabel" type="Label" parent="MarginContainer/VBoxContainer/ATKContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="DEFContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DEFContainer"]
+layout_mode = 2
+text = "DEF: "
+
+[node name="DEFValueLabel" type="Label" parent="MarginContainer/VBoxContainer/DEFContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="MYSContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MYSContainer"]
+layout_mode = 2
+text = "MYS: "
+
+[node name="MYSValueLabel" type="Label" parent="MarginContainer/VBoxContainer/MYSContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="RESContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RESContainer"]
+layout_mode = 2
+text = "RES: "
+
+[node name="RESValueLabel" type="Label" parent="MarginContainer/VBoxContainer/RESContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="SPDContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SPDContainer"]
+layout_mode = 2
+text = "SPD: "
+
+[node name="SPDValueLabel" type="Label" parent="MarginContainer/VBoxContainer/SPDContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"

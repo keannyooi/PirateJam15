@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SOS"
+config/name="Shadows Of Self"
 config/version="0.1.0"
 run/main_scene="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
@@ -30,14 +30,13 @@ GlobalSignalBus="*res://events/GlobalSignalBus.gd"
 
 window/stretch/mode="canvas_items"
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+
+[gui]
+
+theme/custom="res://assets/MainTheme.tres"
 
 [input]
 

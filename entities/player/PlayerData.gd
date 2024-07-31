@@ -32,6 +32,10 @@ var main_deck: Dictionary = {}
 var battle_deck: Dictionary = {}
 var side_deck: Dictionary = {}
 
+var current_floor: int = 0
+var current_node_id: int = 0
+
+
 func _ready() -> void:
 	for card in start_deck.deck:
 		for i in range(start_deck.deck[card]):
@@ -43,6 +47,10 @@ func add_card_to_deck(id: String) -> void:
 		add_to_side_deck(id)
 	else:
 		add_to_main_deck(id)
+	
+
+func mark_current_node_complete() -> void:
+	completed_nodes.append(current_node_id)
 	
 
 func move_card_to_side_deck(id: String) -> void:
@@ -85,9 +93,15 @@ func add_to_side_deck(id: String) -> void:
 	else:
 		side_deck[id] = 1
 	
+<<<<<<< HEAD
 func recover_hp(hp: float) -> void:
 	hp = min(hp + hp, hp_max) 
 	$HPComponent.update(hp/hp_max)
+=======
+func recover_hp(amount: float) -> void:
+	hp = min(hp + amount, hp_max) 
+	$HPComponent.update(hp)
+>>>>>>> fe40534b63702554fbbf4a8bbe8813909ed29801
 	
 func setAttributes(floor_level, egoArray):
 	var total_ego = 0

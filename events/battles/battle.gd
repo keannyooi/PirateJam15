@@ -125,10 +125,10 @@ func execution_phase(enemy: Enemy = null) -> void:
 	if current_card.function[CardManager.CardFunction.RES] != 0:
 		PlayerData.res_block += calculate_res_block(floor_number, PlayerData.main_deck_size, \
 			PlayerData.atk, PlayerData.buffs.atk, ego_multiplier)
-	if current_card.function[CardManager.CardFunction.ATK] != 0:
+	if current_card.function[CardManager.CardFunction.ATK] != 0 and enemy != null:
 		enemy.take_atk_damage(calculate_atk_damage(floor_number, PlayerData.main_deck_size, \
 			PlayerData.atk, PlayerData.buffs.atk, ego_multiplier))
-	if current_card.function[CardManager.CardFunction.MYS] != 0:
+	if current_card.function[CardManager.CardFunction.MYS] != 0 and enemy != null:
 		enemy.take_mys_damage(calculate_mys_damage(floor_number, PlayerData.main_deck_size, \
 			PlayerData.atk, PlayerData.buffs.atk, ego_multiplier))
 	if current_card.function[CardManager.CardFunction.DRW] != 0:
@@ -202,11 +202,11 @@ func enemy_phase() -> void:
 			enemy.recover_hp(calculate_hp_change(floor_number, enemy.deck_dict.size(), enemy.attributes.hp, enemy.buffs.hp, enemy.ego)) 
 		if card_function[CardManager.CardFunction.SPD] != 0:
 			enemy.recover_hp(calculate_spd_change(floor_number, enemy.deck_dict.size(), enemy.attributes.hp, enemy.buffs.hp, enemy.ego))
-		if card_function[CardManager.CardFunction.ATK] != 0:
+		if card_function[CardManager.CardFunction.ATK] != 0 and enemies_node.get_child_count() > 0:
 			player.take_atk_damage(calculate_atk_damage(floor_number, enemy.deck_dict.size(), enemy.attributes.atk, enemy.buffs.atk, enemy.ego))
 		if card_function[CardManager.CardFunction.DEF] != 0:
 			enemy.attributes.def_block += calculate_def_block(floor_number, enemy.deck_dict.size(), enemy.attributes.def, enemy.buffs.def, enemy.ego)
-		if card_function[CardManager.CardFunction.MYS] != 0:
+		if card_function[CardManager.CardFunction.MYS] != 0 and enemies_node.get_child_count() > 0:
 			player.take_atk_damage(calculate_mys_damage(floor_number, enemy.deck_dict.size(), enemy.attributes.mys, enemy.buffs.mys, enemy.ego))
 		if card_function[CardManager.CardFunction.RES] != 0:
 			enemy.attributes.res_block += calculate_res_block(floor_number, enemy.deck_dict.size(), enemy.attributes.res, enemy.buffs.res, enemy.ego)

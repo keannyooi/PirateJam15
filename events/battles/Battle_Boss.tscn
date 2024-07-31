@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1ges601d22pa"]
+[gd_scene load_steps=16 format=3 uid="uid://c1ges601d22pa"]
 
 [ext_resource type="Script" path="res://events/battles/battle.gd" id="1_ys52r"]
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_y5gl5"]
@@ -9,9 +9,33 @@
 [ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="7_ey7yw"]
 [ext_resource type="Texture2D" uid="uid://d3xicgnutdjw2" path="res://assets/sprites/ego_slots_atlas.tres" id="8_7apmj"]
 [ext_resource type="Script" path="res://resources/AttributesResource.gd" id="10_er5w4"]
+[ext_resource type="Script" path="res://resources/BuffsResource.gd" id="11_3sx13"]
 [ext_resource type="PackedScene" uid="uid://coflieblvul6y" path="res://events/ui/card_selection_popup.tscn" id="12_7qnx1"]
 [ext_resource type="PackedScene" uid="uid://c70gtxxy2lcdd" path="res://entities/enemies/Boss.tscn" id="12_oxh4q"]
 [ext_resource type="Script" path="res://events/ui/card_selection_popup.gd" id="13_rdmp1"]
+
+[sub_resource type="Resource" id="Resource_eg647"]
+script = ExtResource("10_er5w4")
+hp = 10.0
+atk = 2.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 5.0
+hp_max = 0.0
+def_block = 0.0
+res_block = 0.0
+
+[sub_resource type="Resource" id="Resource_5jdil"]
+script = ExtResource("11_3sx13")
+hp = 1.0
+atk = 1.0
+def = 1.0
+mys = 1.0
+res = 1.0
+spd = 1.0
+def_block = 1.0
+res_block = 1.0
 
 [node name="BattleTemplate" type="CanvasLayer"]
 script = ExtResource("1_ys52r")
@@ -72,7 +96,8 @@ offset_left = 711.0
 offset_top = 183.0
 offset_right = 986.0
 offset_bottom = 539.0
-attributes = ExtResource("10_er5w4")
+attributes = SubResource("Resource_eg647")
+buffs = SubResource("Resource_5jdil")
 deck_dict = {
 "air_def": 3,
 "earth_def": 3,

@@ -85,3 +85,5 @@ func _on_event_child_exiting_tree(_node):
 	PlayerData.completed_nodes.push_back(current_node)
 	update_node_status()
 	%MapNodes.show()
+	if current_node == $MapNodes/Node8:
+		print("WIN THE GAME ALREADY!")#WIN!!!

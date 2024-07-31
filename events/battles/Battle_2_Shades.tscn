@@ -30,15 +30,21 @@ res_block = 1.0
 
 [node name="BattleTemplate" instance=ExtResource("1_crq05")]
 
+[node name="Shade Bubble" parent="Enemies" index="0"]
+offset_left = 838.0
+offset_top = 178.0
+offset_right = 938.0
+offset_bottom = 278.0
+
 [node name="Shade Bubble2" parent="Enemies" index="1" instance=ExtResource("2_ywmeg")]
 modulate = Color(0.716296, 0.716296, 0.716296, 1)
 self_modulate = Color(1, 1, 1, 0)
 show_behind_parent = true
 layout_mode = 0
-offset_left = 730.0
-offset_top = 194.0
-offset_right = 830.0
-offset_bottom = 294.0
+offset_left = 569.0
+offset_top = 177.0
+offset_right = 669.0
+offset_bottom = 277.0
 scale = Vector2(2.63603, 2.94625)
 attributes = SubResource("Resource_3m7vd")
 buffs = SubResource("Resource_6jc26")

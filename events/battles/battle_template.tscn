@@ -28,7 +28,7 @@ hp_max = 0.0
 def_block = 0.0
 res_block = 0.0
 
-[sub_resource type="Resource" id="Resource_6jc26"]
+[sub_resource type="Resource" id="Resource_kfba2"]
 script = ExtResource("10_xrscj")
 hp = 1.0
 atk = 1.0
@@ -107,7 +107,7 @@ offset_right = 830.0
 offset_bottom = 294.0
 scale = Vector2(2.63603, 2.94625)
 attributes = SubResource("Resource_3m7vd")
-buffs = SubResource("Resource_6jc26")
+buffs = SubResource("Resource_kfba2")
 deck_dict = {
 "shadow_atk": 3,
 "shadow_def": 3

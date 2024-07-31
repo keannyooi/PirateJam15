@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="2_a7vt7"]
 [ext_resource type="PackedScene" uid="uid://bqykem1cpd0v5" path="res://entities/player/player.tscn" id="2_r14ym"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="2_rx53a"]
-[ext_resource type="AudioStream" uid="uid://bmbd4dqbjgd55" path="res://assets/bgm/instrument fight.mp3" id="3_817hg"]
+[ext_resource type="AudioStream" uid="uid://lh4864gjj54" path="res://assets/bgm/instrument fight.mp3" id="3_817hg"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="3_ga8ma"]
 [ext_resource type="PackedScene" uid="uid://csjic52l2x2c5" path="res://events/ui/ego_display_hud.tscn" id="4_lvjpo"]
 [ext_resource type="PackedScene" uid="uid://bga3t703ec3ht" path="res://events/ui/card_hand.tscn" id="4_yq8u1"]

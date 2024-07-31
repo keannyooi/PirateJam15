@@ -93,15 +93,9 @@ func add_to_side_deck(id: String) -> void:
 	else:
 		side_deck[id] = 1
 	
-<<<<<<< HEAD
-func recover_hp(hp: float) -> void:
-	hp = min(hp + hp, hp_max) 
-	$HPComponent.update(hp/hp_max)
-=======
 func recover_hp(amount: float) -> void:
 	hp = min(hp + amount, hp_max) 
 	$HPComponent.update(hp)
->>>>>>> fe40534b63702554fbbf4a8bbe8813909ed29801
 	
 func setAttributes(floor_level, egoArray):
 	var total_ego = 0
